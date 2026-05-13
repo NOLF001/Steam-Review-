@@ -1,5 +1,18 @@
 # Steam Review Collector
 
+## 🌐 Live Site
+
+분석 결과는 다음 URL에서 확인 가능:
+
+**🔗 https://nolf001.github.io/Steam-Review-/reports/**
+
+| 게임 | 분석 결과 |
+|---|---|
+| The Witcher 3: Wild Hunt | [분석 보기](https://nolf001.github.io/Steam-Review-/reports/witcher3.html) |
+| Crimson Desert | [분석 보기](https://nolf001.github.io/Steam-Review-/reports/crimson_desert.html) |
+
+---
+
 Steam Web API를 사용해 특정 게임의 **모든 유저 리뷰**를 CSV로 수집하는 Python 스크립트.
 
 ---
