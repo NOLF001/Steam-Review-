@@ -1,0 +1,15 @@
+{
+  "game_name": "The Elder Scrolls V: Skyrim Special Edition",
+  "slug": "skyrim",
+  "steam_rating": "Very Positive",
+  "positive_ratio": 95.0,
+  "total_analyzed": 49997,
+  "generated_at": "2026-05-13T14:00:00",
+  "metadata": {
+    "input_file": "skyrim_reviews.csv",
+    "total_steam_reviews": 365420,
+    "avg_playtime_hours": 222.5,
+    "median_playtime_hours": 100.3,
+    "note": "Manual analysis by Claude Code from top 600 English reviews by helpfulness votes. Notable: significant portion of negative reviews are protest votes against Bethesda social media conduct (Charlie Kirk/Indiana Jones controversy), not gameplay dissatisfaction."
+  }
+}

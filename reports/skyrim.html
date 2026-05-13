@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Steam review analysis of The Elder Scrolls V: Skyrim Special Edition — Very Positive (95.0% positive)">
+<meta property="og:title" content="Skyrim SE – Steam Review Analysis">
+<title>The Elder Scrolls V: Skyrim SE – Steam Review Analysis</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #1b2838;
+  color: #c7d5e0;
+  font-family: 'Motiva Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Nav */
+.nav-bar {
+  background: #16202c;
+  border-bottom: 1px solid #2a475e;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-back { color: #66c0f4; text-decoration: none; font-size: 14px; transition: color .15s; }
+.nav-back:hover { color: #8fd3f4; text-decoration: underline; }
+.nav-game { color: #8f98a0; font-size: 14px; }
+
+/* Container */
+.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+
+/* Header */
+.header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 20px; padding-bottom: 28px; margin-bottom: 32px;
+  border-bottom: 1px solid #2a475e;
+}
+.game-name { font-size: 32px; font-weight: bold; color: #fff; line-height: 1.2; margin-bottom: 6px; }
+.subtitle   { font-size: 15px; color: #8f98a0; }
+.header-right { text-align: right; flex-shrink: 0; }
+.steam-rating { font-size: 20px; font-weight: bold; color: #66c0f4; margin-bottom: 4px; }
+.review-count { font-size: 13px; color: #8f98a0; }
+
+/* Stats bar */
+.stats-bar {
+  background: #16202c; border: 1px solid #2a475e; border-radius: 6px;
+  padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 28px;
+}
+.stat-item { flex: 1; min-width: 120px; padding: 4px 16px; }
+.stat-item:first-child { padding-left: 0; }
+.stat-item + .stat-item { border-left: 1px solid #2a475e; }
+.stat-label { font-size: 10px; color: #8f98a0; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 3px; }
+.stat-value { font-size: 18px; font-weight: bold; color: #c7d5e0; display: block; }
+
+/* Ratio bar */
+.ratio-wrap { margin-bottom: 28px; }
+.ratio-labels { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
+.label-pos { color: #a4d007; font-weight: bold; }
+.label-neg { color: #e05c37; font-weight: bold; }
+.ratio-track { height: 6px; background: rgba(163,76,37,.35); border-radius: 3px; overflow: hidden; }
+.ratio-fill  { height: 100%; background: linear-gradient(90deg,#5c7e10,#a4d007); border-radius: 3px; }
+
+/* Language pills */
+.lang-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+.lang-pill { background: #16202c; border: 1px solid #2a475e; border-radius: 20px; padding: 4px 12px; font-size: 12px; color: #8f98a0; }
+.lang-pill strong { color: #c7d5e0; }
+
+/* Sections */
+.section { margin-bottom: 32px; }
+.section-heading { font-size: 24px; font-weight: bold; margin-bottom: 16px; }
+.section-heading.pros    { color: #5c7e10; }
+.section-heading.cons    { color: #a34c25; }
+.section-heading.verdict { color: #66c0f4; }
+.section-heading.stats   { color: #c7d5e0; }
+
+/* List items */
+.item-list { list-style: none; }
+.item-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+  line-height: 1.6; font-size: 15px;
+}
+.item-list li:last-child { border-bottom: none; }
+.marker      { flex-shrink: 0; margin-top: 2px; }
+.marker.pros { color: #5c7e10; }
+.marker.cons { color: #a34c25; }
+
+/* Verdict */
+.verdict-body {
+  border-left: 4px solid #66c0f4;
+  padding-left: 20px; font-size: 15px; line-height: 1.8; color: #c7d5e0;
+}
+.verdict-body p + p { margin-top: 14px; }
+
+/* Callout */
+.callout {
+  background: rgba(193,176,75,.08); border: 1px solid rgba(193,176,75,.3);
+  border-left: 4px solid #c1b04b; border-radius: 4px;
+  padding: 12px 16px; margin-bottom: 16px; font-size: 14px; line-height: 1.7;
+  color: #c7d5e0;
+}
+.callout-title { font-weight: bold; color: #c1b04b; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; }
+
+/* Quote cards */
+.quotes { display: flex; flex-direction: column; gap: 10px; }
+.quote-card { background: #16202c; border: 1px solid #2a475e; border-radius: 4px; padding: 12px 16px; }
+.quote-card.pos { border-left: 3px solid #5c7e10; }
+.quote-card.neg { border-left: 3px solid #a34c25; }
+.quote-meta { font-size: 11px; color: #8f98a0; margin-bottom: 5px; }
+.quote-text { font-size: 13.5px; font-style: italic; line-height: 1.6; }
+
+/* Playtime bars */
+.pt-bars { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.pt-label { width: 90px; color: #8f98a0; flex-shrink: 0; }
+.pt-track { flex: 1; background: #0e1923; border-radius: 2px; height: 14px; overflow: hidden; }
+.pt-fill  { height: 100%; border-radius: 2px; background: linear-gradient(90deg,#2a5f8a,#66c0f4); }
+.pt-count { width: 50px; text-align: right; color: #c7d5e0; }
+
+/* Footer */
+.footer {
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid #2a475e;
+  font-size: 12px; color: #566b7d; text-align: center; line-height: 1.8;
+}
+</style></head><body>
+<nav class="nav-bar"><a href="index.html" class="nav-back">&#8592; Back to Dashboard</a><span class="nav-game">The Elder Scrolls V: Skyrim Special Edition</span></nav>
+<div class="container">
+<div class="header">
+<div class="header-left">
+<div class="game-name">The Elder Scrolls V: Skyrim<br><span style="font-size:20px;font-weight:normal;color:#8f98a0">Special Edition</span></div>
+<div class="subtitle">Steam Review Analysis &nbsp;|&nbsp; Bethesda Game Studios &nbsp;|&nbsp; Released 2016 (SE)</div>
+</div>
+<div class="header-right">
+<div class="steam-rating">Very Positive</div>
+<div class="review-count">49,997 reviews analyzed</div>
+</div>
+</div>
+<div class="stats-bar">
+<div class="stat-item"><span class="stat-label">Positive Ratio</span><span class="stat-value">95.0%</span></div>
+<div class="stat-item"><span class="stat-label">Avg Playtime</span><span class="stat-value">222.5 h</span></div>
+<div class="stat-item"><span class="stat-label">Median Playtime</span><span class="stat-value">100.3 h</span></div>
+<div class="stat-item"><span class="stat-label">Total Reviews</span><span class="stat-value">365,420</span></div>
+</div>
+<div class="ratio-wrap">
+<div class="ratio-labels"><span class="label-pos">&#9650; Recommended &nbsp; 47,505 (95.0%)</span><span class="label-neg">2,492 (5.0%) &nbsp; Not Recommended &#9650;</span></div>
+<div class="ratio-track"><div class="ratio-fill" style="width:95%"></div></div>
+</div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Language Distribution (top 10)</div>
+<div class="lang-bar">
+<span class="lang-pill"><strong>English</strong> 53.1%</span>
+<span class="lang-pill"><strong>Русский</strong> 9.6%</span>
+<span class="lang-pill"><strong>Português-BR</strong> 8.4%</span>
+<span class="lang-pill"><strong>Español</strong> 6.3%</span>
+<span class="lang-pill"><strong>简体中文</strong> 5.6%</span>
+<span class="lang-pill"><strong>Français</strong> 3.0%</span>
+<span class="lang-pill"><strong>Deutsch</strong> 2.3%</span>
+<span class="lang-pill"><strong>Türkçe</strong> 2.1%</span>
+<span class="lang-pill"><strong>Українська</strong> 1.7%</span>
+<span class="lang-pill"><strong>Polski</strong> 1.6%</span>
+</div></div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Playtime Distribution</div>
+<div class="pt-bars">
+<div class="pt-row"><span class="pt-label"><100h</span><div class="pt-track"><div class="pt-fill" style="width:49.9%"></div></div><span class="pt-count">24,942</span></div>
+<div class="pt-row"><span class="pt-label">100–500h</span><div class="pt-track"><div class="pt-fill" style="width:40.5%"></div></div><span class="pt-count">20,246</span></div>
+<div class="pt-row"><span class="pt-label">500h+</span><div class="pt-track"><div class="pt-fill" style="width:9.6%"></div></div><span class="pt-count">4,809</span></div>
+</div></div>
+<div class="section">
+<div class="callout">
+<div class="callout-title">&#9888; Context: Review Bomb (May 2025)</div>
+A significant portion of the top-voted negative reviews in this corpus are unrelated to gameplay. They protest a now-deleted Bethesda social media post on the Indiana Jones account, perceived as mocking the assassination of Charlie Kirk. These protest votes meaningfully inflate the negative review count — the actual rate of players who found Skyrim not worth playing is materially lower than 5.0%.
+</div></div>
+<div class="section">
+<div class="section-heading pros">Pros</div>
+<ul class="item-list">
+<li><span class="marker pros">&#9658;</span>Mod ecosystem transforms it into an entirely different game — over 14 years of community creation on Nexus Mods and Wabbajack has produced graphical overhauls, new questlines, and total conversions; reviewers routinely describe modded Skyrim as unrecognizable from the base game, and this is treated as the highest praise</li>
+<li><span class="marker pros">&#9658;</span>Open-world freedom remains genre-defining — no open-world game has matched Skyrim's combination of scale, variety, and player agency; you can become Archmage, Thieves Guild master, Dark Brotherhood assassin, werewolf, vampire lord, and Dragonborn simultaneously in a single playthrough</li>
+<li><span class="marker pros">&#9658;</span>Atmosphere and soundtrack are transcendent — Jeremy Soule's score is among gaming's all-time greats; players describe walking through Whiterun at night, standing on a snowy peak, or hearing distant dragon roars as experiences that produce genuine peace unavailable in any other game</li>
+<li><span class="marker pros">&#9658;</span>"Forever game" status — 14+ years post-release and still among Steam's most-played; reviewers casually mention 4,000–9,000+ total hours across Xbox 360, Xbox One, PS3, PS4, Switch, and PC; buying multiple editions of the same game is treated as entirely rational behavior</li>
+<li><span class="marker pros">&#9658;</span>Multiple builds and playstyles guarantee replayability — stealth archer, destruction mage, two-handed warrior, vampire, werewolf, pure pacifist; each new character genuinely plays differently, and many veteran reviewers still encounter quests they've never seen on their 6th or 7th playthrough</li>
+<li><span class="marker pros">&#9658;</span>Guild questlines function as standalone games — the Companions, Thieves Guild, Dark Brotherhood, and College of Winterhold each deliver a complete narrative arc; many players report finishing the game without touching the main quest and feeling nothing was missed</li>
+<li><span class="marker pros">&#9658;</span>Emotional resonance at scale — an unusually high proportion of reviews describe Skyrim as a refuge during difficult life periods; this level of genuine emotional attachment to a video game is rare, and the community's tributes to the game read more like love letters than product reviews</li>
+<li><span class="marker pros">&#9658;</span>Age-defying durability — multiple reviewers arrived from the 2025 Oblivion Remastered and report being pleasantly surprised that Skyrim still holds up; the bones of the game are considered strong enough that even its dated graphics and clunky movement read as charming rather than disqualifying</li>
+</ul></div>
+<div class="section">
+<div class="section-heading cons">Cons</div>
+<ul class="item-list">
+<li><span class="marker cons">&#9658;</span>Recent negative reviews are dominated by a political controversy, not gameplay — the top-voted critical reviews in this corpus protest Bethesda's social media conduct regarding the Charlie Kirk assassination (an Indiana Jones tweet perceived as mocking the incident); this is a corporate boycott wave unrelated to the game itself, and it meaningfully distorts the 5% negative figure as a measure of actual gameplay dissatisfaction</li>
+<li><span class="marker cons">&#9658;</span>Combat has never been meaningfully updated in 14 years — melee remains described as "swinging pool noodles," without meaningful dodge mechanics, physics-driven weight, or enemy AI of any sophistication; players coming from Elden Ring, Dark Souls, or even The Witcher 3 will find the combat loop shallow and repetitive after a few hours</li>
+<li><span class="marker cons">&#9658;</span>Bethesda's update cadence actively breaks mods — the most-upvoted genuine gameplay complaints concern unnecessary engine updates ("STOP UPDATING YOUR STUPID GAME TODD," 247 votes) that invalidate carefully maintained load orders; for players who invest in modlists, each update is a threat rather than an improvement</li>
+<li><span class="marker cons">&#9658;</span>Anniversary Edition created a modding paywall — the AE update split mod compatibility between pre- and post-AE builds; essential mods including the Unofficial Skyrim Special Edition Patch now recommend or require AE, effectively charging existing owners $20 to maintain a stable, fully-patched modding foundation</li>
+<li><span class="marker cons">&#9658;</span>Shallow RPG systems and thin narrative compared to predecessors — Morrowind and Oblivion veterans consistently note that Skyrim streamlined away character depth, skill variety, and roleplaying consequence in pursuit of mainstream accessibility; "wide as an ocean and deep as a puddle" recurs across critical reviews as the definitive summary of this tradeoff</li>
+</ul></div>
+<div class="section">
+<div class="section-heading verdict">Analyst Verdict</div>
+<div class="verdict-body">
+<p>The Elder Scrolls V: Skyrim Special Edition is, by the consensus of its community across 49,997 collected reviews (95.0% positive), one of the most enduring games in PC gaming history — and the reasons for that endurance have almost nothing to do with its 2011 launch-era strengths and everything to do with what it became. The modding community's decade-plus of contributions have transformed Skyrim from a well-made open-world RPG into a platform: a living canvas that reviewers routinely describe as "a different game" once modded. No other single-player game in PC history has accumulated this depth of community investment, and that investment compounds each year. Skyrim's 222.5-hour average playtime — among the highest of any game on Steam — reflects not just content density but emotional attachment.</p>
+<p>The game's weaknesses are real and persistent. Combat was simplistic at launch and remains so. Bethesda's update pattern generates genuine frustration among veteran modders who maintain complex load orders, and the Anniversary Edition's compatibility changes introduced a de facto paywall into what was a seamless modding ecosystem. Notably, the negative review corpus in this sample deserves a contextual footnote: a large share of the top-voted critical reviews are protest votes against Bethesda's corporate conduct during an unrelated political controversy, making the 5.0% negative figure a poor signal of actual gameplay dissatisfaction. The true rate of players who found Skyrim not worth their time is likely well below that.</p>
+<p>The target audience is anyone who values world exploration, atmospheric immersion, and player-defined freedom over mechanical depth or narrative sophistication. Relative to The Witcher 3, Skyrim offers a shallower story but a more expansive and infinitely moddable sandbox — and Skyrim's community has had four more years to build on it. The recommended setup for any new player is: install the Unofficial Skyrim Special Edition Patch first, add mods according to preference, and ignore the main quest until curiosity naturally pulls you toward it. At current sale prices, Skyrim is one of the safest purchases in gaming — with or without mods, it has an unusually strong track record of changing how people feel about video games.</p>
+</div></div>
+<div class="section">
+<div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Community Voices</div>
+<div class="quotes">
+<div class="quote-card pos"><div class="quote-meta">384 votes | 4,545h</div><div class="quote-text">"Played about 300 hours on console, 2000+ hours on an 'unofficial' copy, and over 4000+ hours on Special Edition. It's an okay game I guess."</div></div>
+<div class="quote-card pos"><div class="quote-meta">317 votes | 912h</div><div class="quote-text">"The only game where you can get married, have kids, run a college, become part of the upper echelon of every city, end a war, save the world, suck out the souls of dragons, become one of the greatest thieves of all time, murder the emperor, eat people's hearts as a werewolf, suck their blood as a vampire lord, blot out the sun, ride dragons, and get into drunken bar fights all in one playthrough. 100/100. Legendary."</div></div>
+<div class="quote-card pos"><div class="quote-meta">287 votes | 150h</div><div class="quote-text">"Skyrim is the only game where you can be the chosen hero destined to slay dragons… and then spend 40 hours hoarding cabbages and getting into bar fights. The main quest? Completely forgotten after you adopt a dog, accidentally become a werewolf, and get married to someone who only likes you for your house."</div></div>
+<div class="quote-card pos"><div class="quote-meta">226 votes | 508h</div><div class="quote-text">"NOTE: Bethesda, Do us people a service and stop updating this F**king game... please. games bloody brilliant, especially with mods... but not when the game updates and breaks your 300+ hour save."</div></div>
+<div class="quote-card pos"><div class="quote-meta">114 votes | 312h</div><div class="quote-text">"60 hours downloading mods and maintaining modlists... 9 hours of gameplay, repeat."</div></div>
+<div class="quote-card pos"><div class="quote-meta">108 votes | 740h</div><div class="quote-text">"Perfectly balanced game, no bugs or exploits whatsoever. Thank you Todd Howard!"</div></div>
+<div class="quote-card pos"><div class="quote-meta">106 votes | 9h</div><div class="quote-text">"Skyrim is the perfect form of escapism. Gf left you? Skyrim. Moms gone? Skyrim. Dog died? Skyrim. Running from responsibilities? Skyrim."</div></div>
+<div class="quote-card pos"><div class="quote-meta">96 votes | 9h</div><div class="quote-text">"Witcher 3 is a better medieval RPG than Skyrim in every aspect. It has better story line, the characters are much more fleshed out, better moral dilemmas. But I still prefer Skyrim. There's something magical about this game. Just walking around at night in Whiterun makes you feel at home."</div></div>
+<div class="quote-card neg"><div class="quote-meta">247 votes | 272h</div><div class="quote-text">"STOP UPDATING YOUR STUPID GAME TODD I STG THEY NEVER FIXED THE BUGS NEVER ADD ANYTHING OF SUBSTANCE AND ALL YOU'RE DOING IS RUINING MY CBBE CBPC PHYSICS MODS TODD I'M ACTUALLY SICK OF YOUR BS"</div></div>
+<div class="quote-card neg"><div class="quote-meta">160 votes | 4,184h</div><div class="quote-text">"If you want your physical life absorbed by a new better digital reality, sure play this game. I don't suggest it because your soul will be consumed and you'll never see the light of day again."</div></div>
+</div></div>
+<div class="footer">
+Analysis: 49,997 reviews (from 365,420 total) &nbsp;|&nbsp; Positive: 95.0% &nbsp;|&nbsp; Avg playtime: 222.5h &nbsp;|&nbsp; Very Positive<br>
+Corpus: English 53.1% &nbsp;|&nbsp; Russian 9.6% &nbsp;|&nbsp; Brazilian 8.4% &nbsp;|&nbsp; Spanish 6.3% &nbsp;|&nbsp; Chinese 5.6% &nbsp;|&nbsp; +5 more<br>
+Generated by Claude Code — manual analysis of top 600 English reviews by helpfulness votes &nbsp;|&nbsp; May 2026
+</div>
+</div></body></html>
