@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Steam review analyses for 4 games, powered by Claude API">
+  <meta name="description" content="Steam review analyses for 5 games, powered by Claude API">
   <meta property="og:title" content="Steam Review Analysis Dashboard">
   <title>Steam Review Analysis Dashboard</title>
   <link rel="stylesheet" href="assets/style.css">
@@ -13,10 +13,25 @@
 
     <header class="dash-header">
       <div class="dash-title">Steam Review Analysis Dashboard</div>
-      <div class="dash-subtitle">Game review analysis powered by Claude API &nbsp;|&nbsp; 4 games analyzed</div>
+      <div class="dash-subtitle">Game review analysis powered by Claude API &nbsp;|&nbsp; 5 games analyzed</div>
     </header>
 
     <div class="card-grid">
+      <a class="game-card" href="ac_odyssey.html">
+        <span class="card-badge very-positive">Very Positive</span>
+        <div class="card-game-name">Assassin's Creed Odyssey</div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-label">Positive</span>
+            <span class="card-stat-value">87.2%</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">Analyzed</span>
+            <span class="card-stat-value">49,998</span>
+          </div>
+        </div>
+        <span class="card-btn">View Analysis &rarr;</span>
+      </a>
       <a class="game-card" href="crimson_desert.html">
         <span class="card-badge very-positive">Very Positive</span>
         <div class="card-game-name">Crimson Desert</div>
@@ -27,7 +42,7 @@
           </div>
           <div class="card-stat">
             <span class="card-stat-label">Analyzed</span>
-            <span class="card-stat-value">1,681</span>
+            <span class="card-stat-value">150,535</span>
           </div>
         </div>
         <span class="card-btn">View Analysis &rarr;</span>
@@ -80,7 +95,7 @@
     </div>
 
     <footer class="dash-footer">
-      Last updated: 2026-05-13 14:02 UTC<br>
+      Last updated: 2026-05-13 14:27 UTC<br>
       Powered by <a href="https://www.anthropic.com/claude" style="color:#66c0f4">Claude API</a>
       &nbsp;|&nbsp; Steam review data via Steam Web API
     </footer>

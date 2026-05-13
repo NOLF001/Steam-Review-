@@ -3,10 +3,13 @@
   "slug": "crimson_desert",
   "steam_rating": "Very Positive",
   "positive_ratio": 84.0,
-  "total_analyzed": 1681,
-  "generated_at": "2026-05-13T11:13:59",
+  "total_analyzed": 150535,
+  "generated_at": "2026-05-13T15:00:00",
   "metadata": {
     "input_file": "crimson_desert_full.csv",
-    "note": "Overall Steam rating: Very Positive (84%). English-speaking reviewers: Mixed (47.4%). Manual analysis by Claude Code from 100 sampled high-vote English reviews."
+    "total_steam_reviews": 150535,
+    "avg_playtime_hours": 101.3,
+    "median_playtime_hours": 80.5,
+    "note": "Full corpus (Mar 19 – May 13, 2026 launch window). Manual analysis by Claude Code. Notable: steep learning curve drives early refunds; slow-burn reputation — players who persist past 15-20 hours rate significantly higher. Controls/keybind complaints dominant; Pearl Abyss rapid-patching praised."
   }
 }

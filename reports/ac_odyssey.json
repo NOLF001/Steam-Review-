@@ -1,0 +1,15 @@
+{
+  "game_name": "Assassin's Creed Odyssey",
+  "slug": "ac_odyssey",
+  "steam_rating": "Very Positive",
+  "positive_ratio": 87.2,
+  "total_analyzed": 49998,
+  "generated_at": "2026-05-13T16:00:00",
+  "metadata": {
+    "input_file": "ac_odyssey_reviews.csv",
+    "total_steam_reviews": 183521,
+    "avg_playtime_hours": 117.7,
+    "median_playtime_hours": 86.0,
+    "note": "50k sample from 183k total. Manual analysis by Claude Code. Notable: dominant negative driver is Ubisoft Connect DRM (not gameplay) — many positive game reviews marked Not Recommended due to UConnect offline issues and save corruption. Kassandra universally praised. Fate of Atlantis DLC highlighted as standout content."
+  }
+}
