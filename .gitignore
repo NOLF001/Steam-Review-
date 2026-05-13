@@ -1,0 +1,46 @@
+# ── Steam review CSV data (too large for git) ──
+*.csv
+
+# ── API keys / secrets ──
+.env
+*.env
+.envrc
+
+# ── Python ──
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Temp / analysis scripts ──
+_w3_analyze.py
+_w3_output.txt
+_gen_w3.py
+_gen_cd_full.py
+_analysis_output.txt
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editors ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Logs ──
+*.log
+
+# ── Checkpoint files ──
+reviews_*_checkpoint.csv

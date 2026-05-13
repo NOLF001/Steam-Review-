@@ -1,0 +1,72 @@
+{
+  "game_name": "Souldiers",
+  "total_reviews_analyzed": 231,
+  "positive_ratio": 49.4,
+  "steam_rating": "Mixed",
+  "avg_playtime_hours": 44.3,
+  "median_playtime_hours": 28.1,
+  "overview": "Souldiers is a visually breathtaking 2D Metroidvania that offers an enormous world, three distinct playable classes, and dozens of hours of content — a genuine rarity in the genre. The game is universally praised for its exceptional hand-crafted pixel art and atmospheric soundtrack, which together create one of the most visually polished experiences in the Metroidvania space. While its deep combat and vast exploration are clear strengths, the game is held back by severe difficulty-balance issues, dungeons that overstay their welcome, an unforgiving save system, and several game-breaking bugs that were present at launch and remain partially unresolved. Players who push through its rough edges consistently report a rewarding experience; those sensitive to QoL shortcomings or unbalanced progression are more likely to bounce off.",
+  "pros": [
+    {
+      "text": "Stunning, handcrafted pixel art and animations widely considered best-in-class for the genre.",
+      "strength": 5
+    },
+    {
+      "text": "Rich, atmospheric soundtrack that consistently elevates every area and boss encounter.",
+      "strength": 5
+    },
+    {
+      "text": "Massive world with enormous content volume — a full playthrough routinely exceeds 30-50 hours.",
+      "strength": 4
+    },
+    {
+      "text": "Deep, evolving combat system that continuously introduces new weapons and mechanics throughout the run.",
+      "strength": 4
+    },
+    {
+      "text": "Three distinct classes (Scout, Warrior, Caster) each offering a meaningfully different playstyle.",
+      "strength": 3
+    },
+    {
+      "text": "High-difficulty Metroidvania experience that rewards patient, genre-savvy players with a genuine sense of mastery.",
+      "strength": 3
+    }
+  ],
+  "cons": [
+    {
+      "text": "Severe class-balance disparities — Mage deals negligible damage per hit and Scout struggles heavily against the majority of flying enemies.",
+      "strength": 5
+    },
+    {
+      "text": "Dungeons are significantly overlong, creating a persistent sense of stagnation and burnout before reaching the next checkpoint.",
+      "strength": 5
+    },
+    {
+      "text": "Save points are spaced too far apart relative to enemy damage output, turning minor mistakes into lengthy repeated sections.",
+      "strength": 4
+    },
+    {
+      "text": "Multiple game-breaking bugs (progress loss, soft-locks, quest flags) reported since launch with limited developer response.",
+      "strength": 4
+    },
+    {
+      "text": "Keyboard and mouse controls feel unpolished; missing QoL features (item descriptions, map clarity) that are standard in the genre.",
+      "strength": 3
+    },
+    {
+      "text": "Audio inconsistencies including missing sound effects for some abilities and uncontrollably loud ambient crowd noise.",
+      "strength": 2
+    }
+  ],
+  "recommendation": "Souldiers is a must-play for dedicated Metroidvania veterans who prioritize stunning visuals, deep combat systems, and a massive world over polished quality-of-life features. Despite its difficulty-balance problems, overly long dungeons, and lingering bugs, the sheer ambition of its pixel artistry and the scope of its world make it stand out in a crowded genre. Engage with it if you can tolerate old-school hardship and are drawn to games that reward persistence — but approach cautiously if smooth progression and responsive developer support are priorities for you.",
+  "metadata": {
+    "input_file": "crimson_full.csv",
+    "language_filter": "english",
+    "generated_at": "2026-05-13T09:39:42",
+    "elapsed_seconds": 0,
+    "api_cost_usd": 0.0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "note": "Analysis performed directly by Claude Code (no API key used)"
+  }
+}

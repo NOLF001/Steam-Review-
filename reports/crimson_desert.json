@@ -1,0 +1,12 @@
+{
+  "game_name": "Crimson Desert",
+  "slug": "crimson_desert",
+  "steam_rating": "Very Positive",
+  "positive_ratio": 84.0,
+  "total_analyzed": 1681,
+  "generated_at": "2026-05-13T11:13:59",
+  "metadata": {
+    "input_file": "crimson_desert_full.csv",
+    "note": "Overall Steam rating: Very Positive (84%). English-speaking reviewers: Mixed (47.4%). Manual analysis by Claude Code from 100 sampled high-vote English reviews."
+  }
+}

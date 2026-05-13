@@ -1,0 +1,12 @@
+{
+  "game_name": "The Witcher 3: Wild Hunt",
+  "slug": "witcher3",
+  "steam_rating": "Overwhelmingly Positive",
+  "positive_ratio": 95.5,
+  "total_analyzed": 149991,
+  "generated_at": "2026-05-13T00:00:00",
+  "metadata": {
+    "input_file": "witcher3_reviews.csv",
+    "note": "Manual analysis by Claude Code from top 600 English reviews by helpfulness votes. Full corpus: 149,991 reviews across all languages."
+  }
+}

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Souldiers – Community Review Summary</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #1b2838;
+  color: #c7d5e0;
+  font-family: 'Motiva Sans', Arial, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 40px 20px;
+}
+
+.container { max-width: 700px; margin: 0 auto; }
+
+/* ── Header ── */
+.game-header {
+  background: linear-gradient(135deg, #2a3f5f 0%, #1e3a5f 100%);
+  border: 1px solid #3d5a7a;
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.header-left { flex: 1; min-width: 0; }
+
+.label-crs {
+  font-size: 10px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.game-name {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.header-right { text-align: right; flex-shrink: 0; }
+.steam-rating { font-size: 19px; font-weight: bold; white-space: nowrap; }
+.review-meta  { font-size: 11px; color: #8f98a0; margin-top: 4px; }
+
+/* ── Stats bar ── */
+.stats-bar {
+  background: #2a3f5f;
+  border: 1px solid #3d5a7a;
+  border-radius: 6px;
+  padding: 14px 28px;
+  display: flex;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.stat-item { flex: 1; min-width: 120px; padding: 4px 12px; }
+.stat-item:first-child { padding-left: 0; }
+.stat-item + .stat-item { border-left: 1px solid #3d5a7a; }
+
+.stat-label {
+  font-size: 10px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.stat-value {
+  font-size: 17px;
+  font-weight: bold;
+  color: #c7d5e0;
+  display: block;
+}
+
+/* ── Ratio bar ── */
+.ratio-section {
+  background: #2a3f5f;
+  border: 1px solid #3d5a7a;
+  border-radius: 6px;
+  padding: 14px 28px;
+  margin-bottom: 10px;
+}
+
+.ratio-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.label-pos { color: #a4d007; font-weight: bold; }
+.label-neg { color: #e05c37; font-weight: bold; }
+
+.ratio-track {
+  height: 5px;
+  background: rgba(163, 76, 37, 0.35);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ratio-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5c7e10, #a4d007);
+  border-radius: 3px;
+}
+
+/* ── Content sections ── */
+.section {
+  background: #2a3f5f;
+  border: 1px solid #3d5a7a;
+  border-radius: 6px;
+  padding: 20px 28px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #3d5a7a;
+}
+
+.section-title.overview-title { color: #66c0f4; }
+.section-title.pros-title     { color: #a4d007; }
+.section-title.cons-title     { color: #e05c37; }
+.section-title.reco-title     { color: #66c0f4; }
+
+.section-body { font-size: 14px; line-height: 1.65; color: #c7d5e0; }
+
+/* ── Pros / Cons items ── */
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(61, 90, 122, 0.45);
+}
+
+.item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.strength-blocks { display: flex; gap: 3px; flex-shrink: 0; padding-top: 1px; }
+
+.block { width: 14px; height: 14px; border-radius: 2px; }
+
+.filled-pros { background: #5c7e10; }
+.empty-pros  { background: rgba(92, 126, 16, 0.15); border: 1px solid rgba(92, 126, 16, 0.35); }
+.filled-cons { background: #a34c25; }
+.empty-cons  { background: rgba(163, 76, 37, 0.15); border: 1px solid rgba(163, 76, 37, 0.35); }
+
+.item-text { font-size: 13.5px; color: #c7d5e0; line-height: 1.45; }
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  font-size: 11px;
+  color: #566b7d;
+  padding-top: 16px;
+  margin-top: 6px;
+  border-top: 1px solid #2a3f5f;
+  line-height: 1.9;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="game-header">
+      <div class="header-left">
+        <div class="label-crs">Community Review Summary</div>
+        <div class="game-name">Souldiers</div>
+      </div>
+      <div class="header-right">
+        <div class="steam-rating" style="color:#c1b04b">Mixed</div>
+        <div class="review-meta">231 reviews analyzed</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-label">Positive Ratio</span>
+        <span class="stat-value">49.4%</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Avg Playtime</span>
+        <span class="stat-value">44.3 h</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Median Playtime</span>
+        <span class="stat-value">28.1 h</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">English Reviews</span>
+        <span class="stat-value">231</span>
+      </div>
+    </div>
+
+    <!-- Ratio bar -->
+    <div class="ratio-section">
+      <div class="ratio-labels">
+        <span class="label-pos">&#9650; Recommended &nbsp; 114 (49.4%)</span>
+        <span class="label-neg">117 (50.6%) &nbsp; Not Recommended &#9650;</span>
+      </div>
+      <div class="ratio-track">
+        <div class="ratio-fill" style="width:49.4%"></div>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="section">
+      <div class="section-title overview-title">Overview</div>
+      <div class="section-body">Souldiers is a visually breathtaking 2D Metroidvania that offers an enormous world, three distinct playable classes, and dozens of hours of content — a genuine rarity in the genre. The game is universally praised for its exceptional hand-crafted pixel art and atmospheric soundtrack, which together create one of the most visually polished experiences in the Metroidvania space. While its deep combat and vast exploration are clear strengths, the game is held back by severe difficulty-balance issues, dungeons that overstay their welcome, an unforgiving save system, and several game-breaking bugs that were present at launch and remain partially unresolved. Players who push through its rough edges consistently report a rewarding experience; those sensitive to QoL shortcomings or unbalanced progression are more likely to bounce off.</div>
+    </div>
+
+    <!-- Pros -->
+    <div class="section">
+      <div class="section-title pros-title">What Players Love</div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+      </div>
+      <div class="item-text">Stunning, handcrafted pixel art and animations widely considered best-in-class for the genre.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+      </div>
+      <div class="item-text">Rich, atmospheric soundtrack that consistently elevates every area and boss encounter.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block empty-pros"></div>
+      </div>
+      <div class="item-text">Massive world with enormous content volume — a full playthrough routinely exceeds 30-50 hours.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block empty-pros"></div>
+      </div>
+      <div class="item-text">Deep, evolving combat system that continuously introduces new weapons and mechanics throughout the run.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block empty-pros"></div>
+        <div class="block empty-pros"></div>
+      </div>
+      <div class="item-text">Three distinct classes (Scout, Warrior, Caster) each offering a meaningfully different playstyle.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block filled-pros"></div>
+        <div class="block empty-pros"></div>
+        <div class="block empty-pros"></div>
+      </div>
+      <div class="item-text">High-difficulty Metroidvania experience that rewards patient, genre-savvy players with a genuine sense of mastery.</div>
+    </div>
+    </div>
+
+    <!-- Cons -->
+    <div class="section">
+      <div class="section-title cons-title">Common Criticisms</div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+      </div>
+      <div class="item-text">Severe class-balance disparities — Mage deals negligible damage per hit and Scout struggles heavily against the majority of flying enemies.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+      </div>
+      <div class="item-text">Dungeons are significantly overlong, creating a persistent sense of stagnation and burnout before reaching the next checkpoint.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block empty-cons"></div>
+      </div>
+      <div class="item-text">Save points are spaced too far apart relative to enemy damage output, turning minor mistakes into lengthy repeated sections.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block empty-cons"></div>
+      </div>
+      <div class="item-text">Multiple game-breaking bugs (progress loss, soft-locks, quest flags) reported since launch with limited developer response.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block empty-cons"></div>
+        <div class="block empty-cons"></div>
+      </div>
+      <div class="item-text">Keyboard and mouse controls feel unpolished; missing QoL features (item descriptions, map clarity) that are standard in the genre.</div>
+    </div>
+    <div class="item">
+      <div class="strength-blocks">
+        <div class="block filled-cons"></div>
+        <div class="block filled-cons"></div>
+        <div class="block empty-cons"></div>
+        <div class="block empty-cons"></div>
+        <div class="block empty-cons"></div>
+      </div>
+      <div class="item-text">Audio inconsistencies including missing sound effects for some abilities and uncontrollably loud ambient crowd noise.</div>
+    </div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="section">
+      <div class="section-title reco-title">Should You Buy It?</div>
+      <div class="section-body">Souldiers is a must-play for dedicated Metroidvania veterans who prioritize stunning visuals, deep combat systems, and a massive world over polished quality-of-life features. Despite its difficulty-balance problems, overly long dungeons, and lingering bugs, the sheer ambition of its pixel artistry and the scope of its world make it stand out in a crowded genre. Engage with it if you can tolerate old-school hardship and are drawn to games that reward persistence — but approach cautiously if smooth progression and responsive developer support are priorities for you.</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Generated by <strong>Claude API</strong> (claude-sonnet-4-5) &nbsp;·&nbsp; 231 reviews &nbsp;·&nbsp; 49.4% positive &nbsp;·&nbsp; Avg playtime 44.3 h<br>
+      Input: 0 tokens &nbsp;·&nbsp; Output: 0 tokens &nbsp;·&nbsp; Est. cost: $0.0000 &nbsp;·&nbsp; 2026-05-13
+    </div>
+
+  </div>
+</body>
+</html>

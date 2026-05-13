@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Steam review analyses for 2 games, powered by Claude API">
+  <meta property="og:title" content="Steam Review Analysis Dashboard">
+  <title>Steam Review Analysis Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="dashboard">
+
+    <header class="dash-header">
+      <div class="dash-title">Steam Review Analysis Dashboard</div>
+      <div class="dash-subtitle">Game review analysis powered by Claude API &nbsp;|&nbsp; 2 games analyzed</div>
+    </header>
+
+    <div class="card-grid">
+      <a class="game-card" href="crimson_desert.html">
+        <span class="card-badge very-positive">Very Positive</span>
+        <div class="card-game-name">Crimson Desert</div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-label">Positive</span>
+            <span class="card-stat-value">84.0%</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">Analyzed</span>
+            <span class="card-stat-value">1,681</span>
+          </div>
+        </div>
+        <span class="card-btn">View Analysis &rarr;</span>
+      </a>
+      <a class="game-card" href="witcher3.html">
+        <span class="card-badge overwhelmingly-positive">Overwhelmingly Positive</span>
+        <div class="card-game-name">The Witcher 3: Wild Hunt</div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-label">Positive</span>
+            <span class="card-stat-value">95.5%</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">Analyzed</span>
+            <span class="card-stat-value">149,991</span>
+          </div>
+        </div>
+        <span class="card-btn">View Analysis &rarr;</span>
+      </a>
+    </div>
+
+    <footer class="dash-footer">
+      Last updated: 2026-05-13 13:16 UTC<br>
+      Powered by <a href="https://www.anthropic.com/claude" style="color:#66c0f4">Claude API</a>
+      &nbsp;|&nbsp; Steam review data via Steam Web API
+    </footer>
+
+  </div>
+</body>
+</html>

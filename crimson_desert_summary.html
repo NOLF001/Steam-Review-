@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crimson Desert - Steam Review Analysis</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    background: #1b2838;
+    color: #c6d4df;
+    font-family: "Motiva Sans", "Arial", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+a { color: #66c0f4; text-decoration: none; }
+.container { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+    border: 1px solid #4c6b8a;
+    border-radius: 6px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234c6b8a' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+.hero-title { font-size: 32px; font-weight: 700; color: #e8f0f7; margin-bottom: 6px; }
+.hero-subtitle { color: #8aa8c0; font-size: 14px; margin-bottom: 20px; }
+.hero-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+.meta-badge {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: #c6d4df;
+}
+.meta-badge span { display: block; font-size: 11px; color: #8aa8c0; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+.meta-badge strong { font-size: 20px; color: #e8f0f7; }
+
+/* Score banner */
+.score-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #16202c;
+    border: 1px solid #4c6b8a;
+    border-radius: 6px;
+    padding: 18px 24px;
+    margin-bottom: 28px;
+}
+.score-circle {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700;
+    flex-shrink: 0;
+    border: 3px solid;
+}
+.score-pos { background: rgba(100,200,100,0.12); color: #7dbb7d; border-color: #7dbb7d; }
+.score-mixed { background: rgba(220,200,50,0.12); color: #d4c23d; border-color: #d4c23d; }
+.score-label { font-size: 13px; color: #8aa8c0; }
+.score-verdict { font-size: 18px; color: #e8f0f7; font-weight: 600; margin-bottom: 4px; }
+.pos-bar-wrap { flex: 1; }
+.pos-bar-track { background: #2a3f52; border-radius: 3px; height: 10px; overflow: hidden; margin-top: 8px; }
+.pos-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #4fa94d, #7dbb7d); }
+
+/* Section */
+.section { margin-bottom: 28px; }
+.section-title {
+    font-size: 17px; font-weight: 700; color: #e8f0f7;
+    border-left: 3px solid #66c0f4;
+    padding-left: 12px; margin-bottom: 16px;
+}
+
+/* Cards grid */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+
+.card {
+    background: #16202c;
+    border: 1px solid #2a475e;
+    border-radius: 6px;
+    padding: 18px 20px;
+}
+.card-head {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 700; margin-bottom: 12px;
+}
+.icon { font-size: 18px; }
+.card ul { list-style: none; padding: 0; }
+.card ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13.5px;
+    color: #b8c9d8;
+    display: flex; align-items: flex-start; gap: 8px;
+}
+.card ul li:last-child { border-bottom: none; }
+.bullet-pos { color: #4fa94d; flex-shrink: 0; font-weight: 700; }
+.bullet-neg { color: #c45a5a; flex-shrink: 0; font-weight: 700; }
+
+/* Controversy */
+.controversy {
+    background: #1e1a0a;
+    border: 1px solid #6e5010;
+    border-left: 4px solid #d4a017;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+}
+.controversy-title { font-weight: 700; color: #d4a017; margin-bottom: 6px; font-size: 14px; }
+.controversy p { font-size: 13.5px; color: #c0a870; line-height: 1.6; }
+
+/* Bigrams */
+.bigram-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width: 640px) { .bigram-grid { grid-template-columns: 1fr; } }
+
+.bigram-panel {
+    background: #16202c;
+    border: 1px solid #2a475e;
+    border-radius: 6px;
+    padding: 16px 18px;
+}
+.bigram-panel h4 { font-size: 13px; color: #8aa8c0; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.bigram-item { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+.bigram-label { font-size: 12.5px; color: #c6d4df; width: 160px; flex-shrink: 0; }
+.bigram-track { flex: 1; background: #0e1923; border-radius: 2px; height: 14px; overflow: hidden; }
+.bigram-bar-pos { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #2a6040, #4fa94d); }
+.bigram-bar-neg { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #6b2020, #c45a5a); }
+.bigram-count { font-size: 11.5px; color: #8aa8c0; width: 30px; text-align: right; flex-shrink: 0; }
+
+/* Quotes */
+.quotes { display: flex; flex-direction: column; gap: 12px; }
+.quote-card {
+    background: #16202c;
+    border: 1px solid #2a475e;
+    border-radius: 6px;
+    padding: 14px 18px;
+}
+.quote-card.pos { border-left: 3px solid #4fa94d; }
+.quote-card.neg { border-left: 3px solid #c45a5a; }
+.quote-meta { font-size: 11.5px; color: #8aa8c0; margin-bottom: 6px; }
+.quote-text { font-size: 13px; color: #c6d4df; font-style: italic; line-height: 1.6; }
+
+/* Audience */
+.audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width: 640px) { .audience-grid { grid-template-columns: 1fr; } }
+
+.audience-card {
+    background: #16202c;
+    border: 1px solid #2a475e;
+    border-radius: 6px;
+    padding: 16px 18px;
+}
+.audience-card h4 { font-size: 13.5px; font-weight: 700; margin-bottom: 10px; }
+.audience-card.buy h4 { color: #4fa94d; }
+.audience-card.skip h4 { color: #c45a5a; }
+.audience-card ul { list-style: none; }
+.audience-card ul li { font-size: 13px; color: #b8c9d8; padding: 3px 0; padding-left: 14px; position: relative; }
+.audience-card ul li::before { content: "-"; position: absolute; left: 0; color: #8aa8c0; }
+
+/* Patch note */
+.patch-note {
+    background: #0f1e2a;
+    border: 1px solid #2a475e;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #8aa8c0;
+    line-height: 1.7;
+}
+.patch-note strong { color: #c6d4df; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #4c6b8a;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #2a475e;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+
+<div class="hero">
+  <div class="hero-title">Crimson Desert</div>
+  <div class="hero-subtitle">Pearl Abyss &nbsp;|&nbsp; Open-World Action RPG &nbsp;|&nbsp; Released 2026 &nbsp;|&nbsp; App ID 3321460</div>
+  <div class="hero-meta">
+    <div class="meta-badge"><span>Total Reviews Analyzed</span><strong>1,681</strong></div>
+    <div class="meta-badge"><span>English Quality Reviews</span><strong>votes &ge;5, length &ge;50 chars</strong></div>
+    <div class="meta-badge"><span>Corpus Size</span><strong>150,535 total reviews</strong></div>
+    <div class="meta-badge"><span>Avg Playtime (reviewers)</span><strong>~101 h</strong></div>
+    <div class="meta-badge"><span>Analysis Date</span><strong>May 2026</strong></div>
+  </div>
+</div>
+
+
+<div class="score-bar">
+  <div class="score-circle score-pos">84%</div>
+  <div style="flex:1">
+    <div class="score-verdict">Mostly Positive &mdash; with significant caveats</div>
+    <div class="score-label">84.0% of English quality reviewers recommend &nbsp;|&nbsp; 16.0% do not recommend</div>
+    <div class="pos-bar-wrap">
+      <div class="pos-bar-track"><div class="pos-bar-fill" style="width:84%"></div></div>
+    </div>
+  </div>
+  <div style="text-align:right; min-width:140px">
+    <div style="font-size:13px;color:#4fa94d;font-weight:700;">&#9650; 1,412 REC</div>
+    <div style="font-size:13px;color:#c45a5a;font-weight:700;">&#9660; 269 NOT REC</div>
+    <div style="font-size:11px;color:#8aa8c0;margin-top:4px;">from quality filter</div>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Strengths &amp; Weaknesses</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-head"><span class="icon" style="color:#4fa94d">&#10003;</span> <span style="color:#4fa94d">What Players Love</span></div>
+      <ul>
+        <li><span class="bullet-pos">+</span>Jaw-dropping visuals &mdash; universally the #1 praise; best draw distance in any open-world game</li>
+        <li><span class="bullet-pos">+</span>Massive, dense world (400 km&sup2;) packed with side quests, puzzles, secrets, and random encounters</li>
+        <li><span class="bullet-pos">+</span>Deep, satisfying combat that "clicks" after 10&ndash;20 h &mdash; power-fantasy chain combos, weapon variety</li>
+        <li><span class="bullet-pos">+</span>Exceptional launch optimization: DLSS 4/4.5, Ray Reconstruction, FSR 4, ultra-wide support</li>
+        <li><span class="bullet-pos">+</span>Exploration rewards curiosity &mdash; constant "shiny thing" pull described as Skyrim-like sense of wonder</li>
+        <li><span class="bullet-pos">+</span>Developer responsiveness &mdash; multiple quality-of-life patches shipped within days of launch complaints</li>
+        <li><span class="bullet-pos">+</span>Soundtrack praised as one of the best in recent gaming</li>
+        <li><span class="bullet-pos">+</span>Wildlife, cats, and dogs everywhere &mdash; petting animals repeatedly singled out in positive reviews</li>
+        <li><span class="bullet-pos">+</span>Mount variety: horse, dragon, mech robot, legendary animals, glider, helicopter</li>
+        <li><span class="bullet-pos">+</span>First area alone (Hernand) keeps completionists busy for 70+ hours &mdash; enormous content volume</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="icon" style="color:#c45a5a">&#10007;</span> <span style="color:#c45a5a">Common Complaints</span></div>
+      <ul>
+        <li><span class="bullet-neg">-</span><strong>#1 issue:</strong> Clunky KB+M controls, no WASD-standard rebinding at launch; excessive mouse smoothing/acceleration</li>
+        <li><span class="bullet-neg">-</span>Story is MMO-grade fetch-quest filler with incoherent narrative structure and forgettable dialogue</li>
+        <li><span class="bullet-neg">-</span>Protagonist Kliff is blank and passive &mdash; "no personality or arc"; no meaningful character growth</li>
+        <li><span class="bullet-neg">-</span>Post-launch censorship of Damiane's armor drove a significant wave of negative reviews</li>
+        <li><span class="bullet-neg">-</span>Damiane and Oongka (heavily advertised characters) barely playable in main story</li>
+        <li><span class="bullet-neg">-</span>Steep, poorly explained learning curve &mdash; first 2&ndash;10 hours routinely cited as a barrier</li>
+        <li><span class="bullet-neg">-</span>Undisclosed AI-generated art assets found throughout the world</li>
+        <li><span class="bullet-neg">-</span>Intel Arc GPU entirely unsupported at launch; AMD driver issues; visual shimmering/pop-in</li>
+        <li><span class="bullet-neg">-</span>Progression stalls after ~60 skill points; same enemy types for 20+ hours; minimal meaningful loot</li>
+        <li><span class="bullet-neg">-</span>Always-online requirement for a single-player game; locked/hashed config files prevent customization</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Notable Controversies</div>
+
+  <div class="controversy">
+    <div class="controversy-title">Post-Launch Censorship &mdash; Damiane Armor</div>
+    <p>
+      Several weeks after launch Pearl Abyss silently altered Damiane's armor designs, reducing their revealing nature.
+      Dozens of the most-upvoted negative reviews (votes ranging from 25 to 165) explicitly cite this as their
+      primary reason to leave &mdash; or stay in &mdash; a negative review. Reviewers call it a "bait and switch":
+      paying full price for content that was subsequently changed. This controversy accounts for a measurable
+      cluster of negative reviews from otherwise satisfied players (some with 50&ndash;290 h playtime).
+    </p>
+  </div>
+
+  <div class="controversy">
+    <div class="controversy-title">AI-Generated Art Assets</div>
+    <p>
+      Players discovered and documented undisclosed use of generative AI for environmental art assets (paintings,
+      decorations, textures). Reviewers criticize this as lazy filler that breaks immersion and disrespects
+      human artists. Pearl Abyss acknowledged the issue and promised removal; skeptical reviewers note the
+      response was PR language with no confirmed follow-through at time of writing.
+    </p>
+  </div>
+
+  <div class="controversy">
+    <div class="controversy-title">Intel Arc GPU Whitelist &mdash; Hardware Lockout</div>
+    <p>
+      At launch Pearl Abyss maintains an explicit whitelist of "supported" GPUs. The entire Intel Arc lineup
+      was declared unsupported with users advised to refund. Reviewers flag this as a consumer-hostile
+      practice with game-preservation implications: once active development ends, older or unlisted hardware
+      becomes permanently locked out.
+    </p>
+  </div>
+
+  <div class="controversy">
+    <div class="controversy-title">Review-Score Politicization</div>
+    <p>
+      A notable subset of both positive and negative reviews frames the game's reception in culture-war terms.
+      Positive reviewers frequently praise the absence of "woke" content and credit negative professional reviews
+      (IGN 6/10, Bloomberg) to political bias. This amplifies the review polarization beyond pure gameplay
+      assessment. The game's localization choices (Kliff pronoun usage) and marketing changes are cited as evidence
+      by both sides.
+    </p>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Top Theme Frequencies &mdash; Bigram Analysis (top 500 reviews by helpfulness)</div>
+  <div class="bigram-grid">
+    <div class="bigram-panel">
+      <h4>Positive Reviews &mdash; top phrases</h4>
+      <div class="bigram-item"><span class="bigram-label">open world</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:100%"></div></div><span class="bigram-count">102</span></div>
+<div class="bigram-item"><span class="bigram-label">pearl abyss</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:44%"></div></div><span class="bigram-count">45</span></div>
+<div class="bigram-item"><span class="bigram-label">side quests</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:30%"></div></div><span class="bigram-count">31</span></div>
+<div class="bigram-item"><span class="bigram-label">slow burn</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:10%"></div></div><span class="bigram-count">11</span></div>
+<div class="bigram-item"><span class="bigram-label">boss fights</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:19%"></div></div><span class="bigram-count">20</span></div>
+<div class="bigram-item"><span class="bigram-label">combat system</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:14%"></div></div><span class="bigram-count">15</span></div>
+<div class="bigram-item"><span class="bigram-label">feels alive</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:14%"></div></div><span class="bigram-count">15</span></div>
+<div class="bigram-item"><span class="bigram-label">draw distance</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:11%"></div></div><span class="bigram-count">12</span></div>
+<div class="bigram-item"><span class="bigram-label">red dead</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:27%"></div></div><span class="bigram-count">28</span></div>
+<div class="bigram-item"><span class="bigram-label">main story</span><div class="bigram-track"><div class="bigram-bar-pos" style="width:21%"></div></div><span class="bigram-count">22</span></div>
+    </div>
+    <div class="bigram-panel">
+      <h4>Negative Reviews &mdash; top phrases</h4>
+      <div class="bigram-item"><span class="bigram-label">open world</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:100%"></div></div><span class="bigram-count">68</span></div>
+<div class="bigram-item"><span class="bigram-label">pearl abyss</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:75%"></div></div><span class="bigram-count">51</span></div>
+<div class="bigram-item"><span class="bigram-label">side quests</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:52%"></div></div><span class="bigram-count">36</span></div>
+<div class="bigram-item"><span class="bigram-label">boss fights</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:48%"></div></div><span class="bigram-count">33</span></div>
+<div class="bigram-item"><span class="bigram-label">control scheme</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:36%"></div></div><span class="bigram-count">25</span></div>
+<div class="bigram-item"><span class="bigram-label">voice acting</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:33%"></div></div><span class="bigram-count">23</span></div>
+<div class="bigram-item"><span class="bigram-label">fetch quests</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:26%"></div></div><span class="bigram-count">18</span></div>
+<div class="bigram-item"><span class="bigram-label">clunky controls</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:19%"></div></div><span class="bigram-count">13</span></div>
+<div class="bigram-item"><span class="bigram-label">main story</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:44%"></div></div><span class="bigram-count">30</span></div>
+<div class="bigram-item"><span class="bigram-label">red dead</span><div class="bigram-track"><div class="bigram-bar-neg" style="width:29%"></div></div><span class="bigram-count">20</span></div>
+    </div>
+  </div>
+  <div class="patch-note" style="margin-top:14px">
+    <strong>Interpretation note:</strong> "open world" and "pearl abyss" rank highly in both camps &mdash; the world
+    is the defining feature that draws fans and is the lens through which detractors judge the game's emptiness.
+    "Red dead" appears frequently as a comparison point in both directions.
+    "Control scheme" and "clunky controls" are unique to negative reviews; "slow burn" and "feels alive" are
+    unique to positive reviews.
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Who Should Buy This Game?</div>
+  <div class="audience-grid">
+    <div class="audience-card buy">
+      <h4>&#9654; Buy if you...</h4>
+      <ul>
+        <li>Love exploration-first open worlds (Skyrim, RDR2, BotW)</li>
+        <li>Can invest 10&ndash;20 hours before demanding payoff</li>
+        <li>Play on controller or are willing to remap KB+M extensively</li>
+        <li>Prioritize visuals and world density over story quality</li>
+        <li>Enjoy sandbox systems without hand-holding</li>
+        <li>Like action combat with deep combo potential</li>
+        <li>Have a modern mid-to-high-end GPU (RTX 3070+ recommended)</li>
+        <li>Appreciate a world that rewards off-the-beaten-path curiosity</li>
+      </ul>
+    </div>
+    <div class="audience-card skip">
+      <h4>&#9654; Avoid (for now) if you...</h4>
+      <ul>
+        <li>Expect narrative quality on par with Witcher 3 or RDR2</li>
+        <li>Play exclusively on KB+M and hate non-standard controls</li>
+        <li>Own an Intel Arc GPU (unsupported)</li>
+        <li>Are sensitive to post-launch content changes/censorship</li>
+        <li>Want a focused story-driven single-player RPG</li>
+        <li>Dislike always-online requirements for SP games</li>
+        <li>Expect strong character writing and protagonist depth</li>
+        <li>Have budget concerns at $70 &mdash; wait for a patch cycle + sale</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Reviewer Playtime Profile</div>
+  <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:12px;">
+    <div class="card" style="text-align:center; padding:16px 12px;">
+      <div style="font-size:24px;font-weight:700;color:#66c0f4;">101 h</div>
+      <div style="font-size:12px;color:#8aa8c0;margin-top:4px;">Average playtime</div>
+    </div>
+    <div class="card" style="text-align:center; padding:16px 12px;">
+      <div style="font-size:24px;font-weight:700;color:#66c0f4;">~35 h</div>
+      <div style="font-size:12px;color:#8aa8c0;margin-top:4px;">Median playtime (est.)</div>
+    </div>
+    <div class="card" style="text-align:center; padding:16px 12px;">
+      <div style="font-size:24px;font-weight:700;color:#4fa94d;">~22%</div>
+      <div style="font-size:12px;color:#8aa8c0;margin-top:4px;">Reviewers with 100h+</div>
+    </div>
+    <div class="card" style="text-align:center; padding:16px 12px;">
+      <div style="font-size:24px;font-weight:700;color:#c45a5a;">~41%</div>
+      <div style="font-size:12px;color:#8aa8c0;margin-top:4px;">Reviewers with 10h or less</div>
+    </div>
+  </div>
+  <div class="patch-note" style="margin-top:12px">
+    <strong>Key insight:</strong> The bimodal playtime distribution tells the story. Low-hour reviewers
+    (&le;10 h) skew heavily negative and cite controls + slow opening as dealbreakers. Reviewers past
+    the 20&ndash;30 h threshold skew overwhelmingly positive, frequently saying "it clicked." This game
+    has an unusually high attrition barrier, and whether that is a design flaw or a feature is the
+    central point of contention.
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Representative Quotes (by vote weight)</div>
+  <div class="quotes">
+
+    <div class="quote-card pos">
+      <div class="quote-meta">&#9650; RECOMMENDED &nbsp;|&nbsp; 10,521 helpful votes &nbsp;|&nbsp; 193 h playtime</div>
+      <div class="quote-text">"Its been years since I felt this way about a game. I feel it in my bones that this is the next Skyrim or RDR2. Not because it plays the same, but because it gives me that same feeling of absolute wonder... At some point you realize this world is ALIVE. And that realization changes everything."</div>
+    </div>
+
+    <div class="quote-card neg">
+      <div class="quote-meta">&#9660; NOT RECOMMENDED &nbsp;|&nbsp; 3,871 helpful votes &nbsp;|&nbsp; 28 h playtime</div>
+      <div class="quote-text">"Stunning visuals and an impressively large world... [but] the controls are genuinely some of the worst I have encountered in a modern action game. More critically, the story commits the cardinal sin of being boring. Kliff is a complete blank... Damiane... is barely in the main story. You get, generously, 2 hours of story content with her."</div>
+    </div>
+
+    <div class="quote-card pos">
+      <div class="quote-meta">&#9650; RECOMMENDED &nbsp;|&nbsp; 701 helpful votes &nbsp;|&nbsp; 429 h playtime</div>
+      <div class="quote-text">"I am not good at games. I know this, and yet here I am, having a great time. I'll accept a quest, start heading toward the objective, and then get distracted by a cave, a cat, puzzles I had to quietly Google, and fights I'm absolutely unprepared for. Hours later, the quest remains untouched. I have no regrets. Also, there are cats everywhere in this game, which is the only metric that truly matters."</div>
+    </div>
+
+    <div class="quote-card neg">
+      <div class="quote-meta">&#9660; NOT RECOMMENDED &nbsp;|&nbsp; 571 helpful votes &nbsp;|&nbsp; 253 h playtime</div>
+      <div class="quote-text">"This game has the best massive open world of any game I've ever played. But that's its only redeeming quality. After beating it: 20% walking around talking to people, 20% puzzles with zero logical clues, 30% fighting brainless NPCs, and 10% actual story. The game demands your time and delivers beautiful emptiness."</div>
+    </div>
+
+    <div class="quote-card pos">
+      <div class="quote-meta">&#9650; RECOMMENDED &nbsp;|&nbsp; 251 helpful votes &nbsp;|&nbsp; 600 h playtime</div>
+      <div class="quote-text">"Crimson Desert is an ambitious open-world action-adventure that aims to deliver a cinematic, system-heavy experience... The world of Pywel is one of the most breathtaking environments in recent memory. The draw distance is staggering, the lighting is dynamic and beautiful, and the sheer variety of biomes... feels genuinely hand-crafted."</div>
+    </div>
+
+    <div class="quote-card neg">
+      <div class="quote-meta">&#9660; NOT RECOMMENDED &nbsp;|&nbsp; 49 helpful votes &nbsp;|&nbsp; 165 h playtime</div>
+      <div class="quote-text">"Censored months after release. The game was changed after we paid for it. Do NOT buy it."</div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Analyst Verdict</div>
+  <div class="card" style="padding: 22px 24px;">
+    <p style="margin-bottom:14px; font-size:14px; color:#c6d4df; line-height:1.8;">
+      Crimson Desert is a technically ambitious open-world that delivers on its core promise &mdash;
+      a staggeringly beautiful, dense world packed with things to do &mdash; but ships with meaningful rough edges
+      that prevent a universal recommendation.
+    </p>
+    <p style="margin-bottom:14px; font-size:14px; color:#c6d4df; line-height:1.8;">
+      The game's control design is the most cited barrier. Pearl Abyss is an MMO developer, and the game's
+      input scheme reflects that heritage in ways that frustrate action-RPG veterans accustomed to standard
+      conventions. Patches have addressed the worst offenders, but the fundamental "heavy, deliberate" feel
+      remains &mdash; a design choice that roughly half the audience finds immersive and the other half finds clunky.
+    </p>
+    <p style="margin-bottom:14px; font-size:14px; color:#c6d4df; line-height:1.8;">
+      The story is a genuine weakness with no amount of patching likely to fix it retroactively.
+      The writing is MMO-tier, the protagonist is intentionally blank (a sandbox avatar), and the two
+      characters Pearl Abyss marketed most aggressively (Damiane and Oongka) are peripheral to the main narrative.
+      The post-launch censorship of Damiane's design compounds this disappointment for a subset of fans.
+    </p>
+    <p style="font-size:14px; color:#c6d4df; line-height:1.8;">
+      <strong style="color:#e8f0f7;">Bottom line:</strong> If you play open-world games for the world &mdash;
+      for exploration, atmosphere, and the joy of discovery &mdash; Crimson Desert is exceptional and likely to
+      provide 100+ hours of value. If you play them for story, characters, or responsive action, wait for a sale
+      and additional patches. At $70 full price, the rough edges are hard to overlook for a casual buyer;
+      at $40&ndash;50 on sale with post-launch polish, the game becomes a strong recommendation for genre fans.
+    </p>
+  </div>
+</div>
+
+
+<div class="section">
+  <div class="section-title">Post-Launch Patch Impact (from review text)</div>
+  <div class="patch-note">
+    <strong>v1.00.03</strong> &mdash; Addressed clunky movement/interaction feel; added inventory hotkey (I), map hotkey, journal hotkey.
+    Multiple reviewers updated from negative to positive after this patch.<br><br>
+    <strong>Ongoing</strong> &mdash; Keybinding improvements, camera behavior tuning, AMD driver support coordination.
+    Pearl Abyss responsiveness rated positively even by critics who kept negative reviews.<br><br>
+    <strong>Outstanding issues (as of analysis date)</strong> &mdash; Intel Arc support, hashed config files,
+    mouse smoothing/acceleration toggle, DLSS 4.5/4.5L quality regression vs 4.0, pop-in at medium settings.
+  </div>
+</div>
+
+
+<div class="footer">
+  Analysis generated from 1,681 English-language quality reviews (votes &ge;5, length &ge;50 chars) out of 150,535 total Steam reviews.<br>
+  Top 500 reviews by helpfulness votes manually analyzed. Bigram frequency computed on top 500 positive and top 500 negative reviews.<br>
+  Data collected May 2026 via Steam Web API. Report generated by steam_review_collector.
+</div>
+
+</div><!-- .container -->
+</body>
+</html>
