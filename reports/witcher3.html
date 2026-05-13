@@ -1,6 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Steam review analysis of The Witcher 3: Wild Hunt — Overwhelmingly Positive (95.5% positive, 149,991 reviews)">
 <title>The Witcher 3: Wild Hunt – Steam Review Analysis</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -11,18 +12,31 @@ body {
   font-family: 'Motiva Sans', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  padding: 40px 20px;
 }
-.container { max-width: 800px; margin: 0 auto; }
+
+/* Nav */
+.nav-bar {
+  background: #16202c;
+  border-bottom: 1px solid #2a475e;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-back { color: #66c0f4; text-decoration: none; font-size: 14px; transition: color .15s; }
+.nav-back:hover { color: #8fd3f4; text-decoration: underline; }
+.nav-game { color: #8f98a0; font-size: 14px; }
+
+/* Container */
+.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
 
 /* Header */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  padding-bottom: 28px;
-  margin-bottom: 32px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 20px; padding-bottom: 28px; margin-bottom: 32px;
   border-bottom: 1px solid #2a475e;
 }
 .game-name { font-size: 32px; font-weight: bold; color: #fff; line-height: 1.2; margin-bottom: 6px; }
@@ -33,14 +47,8 @@ body {
 
 /* Stats bar */
 .stats-bar {
-  background: #16202c;
-  border: 1px solid #2a475e;
-  border-radius: 6px;
-  padding: 16px 24px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  margin-bottom: 28px;
+  background: #16202c; border: 1px solid #2a475e; border-radius: 6px;
+  padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 28px;
 }
 .stat-item { flex: 1; min-width: 120px; padding: 4px 16px; }
 .stat-item:first-child { padding-left: 0; }
@@ -73,10 +81,8 @@ body {
 .item-list { list-style: none; }
 .item-list li {
   display: flex; align-items: flex-start; gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-  line-height: 1.6;
-  font-size: 15px;
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+  line-height: 1.6; font-size: 15px;
 }
 .item-list li:last-child { border-bottom: none; }
 .marker      { flex-shrink: 0; margin-top: 2px; }
@@ -86,27 +92,28 @@ body {
 /* Verdict */
 .verdict-body {
   border-left: 4px solid #66c0f4;
-  padding-left: 20px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #c7d5e0;
+  padding-left: 20px; font-size: 15px; line-height: 1.8; color: #c7d5e0;
 }
 .verdict-body p + p { margin-top: 14px; }
 
+/* Callout */
+.callout {
+  background: rgba(193,176,75,.08); border: 1px solid rgba(193,176,75,.3);
+  border-left: 4px solid #c1b04b; border-radius: 4px;
+  padding: 12px 16px; margin-bottom: 28px; font-size: 14px; line-height: 1.7;
+  color: #c7d5e0;
+}
+.callout-title { font-weight: bold; color: #c1b04b; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; }
+
 /* Quote cards */
 .quotes { display: flex; flex-direction: column; gap: 10px; }
-.quote-card {
-  background: #16202c;
-  border: 1px solid #2a475e;
-  border-radius: 4px;
-  padding: 12px 16px;
-}
+.quote-card { background: #16202c; border: 1px solid #2a475e; border-radius: 4px; padding: 12px 16px; }
 .quote-card.pos { border-left: 3px solid #5c7e10; }
 .quote-card.neg { border-left: 3px solid #a34c25; }
 .quote-meta { font-size: 11px; color: #8f98a0; margin-bottom: 5px; }
 .quote-text { font-size: 13.5px; font-style: italic; line-height: 1.6; }
 
-/* Playtime breakdown */
+/* Playtime bars */
 .pt-bars { display: flex; flex-direction: column; gap: 8px; }
 .pt-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
 .pt-label { width: 90px; color: #8f98a0; flex-shrink: 0; }
@@ -116,36 +123,21 @@ body {
 
 /* Footer */
 .footer {
-  margin-top: 40px; padding-top: 16px;
-  border-top: 1px solid #2a475e;
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid #2a475e;
   font-size: 12px; color: #566b7d; text-align: center; line-height: 1.8;
 }
-</style><link rel="stylesheet" href="assets/style.css">
-</head><body>
-<nav class="nav-bar"><a href="index.html" class="nav-back">&#8592; Back to Dashboard</a></nav>
+</style></head><body>
+<nav class="nav-bar"><a href="index.html" class="nav-back">&#8592; Back to Dashboard</a><span class="nav-game">The Witcher 3: Wild Hunt</span></nav>
 <div class="container">
-<div class="header">
-<div class="header-left">
-<div class="game-name">The Witcher 3: Wild Hunt</div>
-<div class="subtitle">Steam Review Analysis &nbsp;|&nbsp; CD Projekt Red &nbsp;|&nbsp; Released 2015</div>
-</div>
-<div class="header-right">
-<div class="steam-rating">Overwhelmingly Positive</div>
-<div class="review-count">149,991 reviews analyzed</div>
-</div>
-</div>
+<div class="header"><div class="header-left"><div class="game-name">The Witcher 3: Wild Hunt</div><div class="subtitle">Steam Review Analysis &nbsp;|&nbsp; CD Projekt Red &nbsp;|&nbsp; Released 2015</div></div><div class="header-right"><div class="steam-rating">Overwhelmingly Positive</div><div class="review-count">149,991 reviews analyzed</div></div></div>
 <div class="stats-bar">
 <div class="stat-item"><span class="stat-label">Positive Ratio</span><span class="stat-value">95.5%</span></div>
 <div class="stat-item"><span class="stat-label">Avg Playtime</span><span class="stat-value">130.3 h</span></div>
 <div class="stat-item"><span class="stat-label">Median Playtime</span><span class="stat-value">94.2 h</span></div>
 <div class="stat-item"><span class="stat-label">Total Reviews</span><span class="stat-value">868,357</span></div>
 </div>
-<div class="ratio-wrap">
-<div class="ratio-labels"><span class="label-pos">&#9650; Recommended &nbsp; 143,249 (95.5%)</span><span class="label-neg">6,742 (4.5%) &nbsp; Not Recommended &#9650;</span></div>
-<div class="ratio-track"><div class="ratio-fill" style="width:95.5%"></div></div>
-</div>
-<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Language Distribution (top 10)</div>
-<div class="lang-bar">
+<div class="ratio-wrap"><div class="ratio-labels"><span class="label-pos">&#9650; Recommended &nbsp; 143,249 (95.5%)</span><span class="label-neg">6,742 (4.5%) &nbsp; Not Recommended &#9650;</span></div><div class="ratio-track"><div class="ratio-fill" style="width:95.5%"></div></div></div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Language Distribution (top 10)</div><div class="lang-bar">
 <span class="lang-pill"><strong>English</strong> 27.4%</span>
 <span class="lang-pill"><strong>简体中文</strong> 23.1%</span>
 <span class="lang-pill"><strong>Русский</strong> 14.4%</span>
@@ -157,57 +149,44 @@ body {
 <span class="lang-pill"><strong>Deutsch</strong> 2.0%</span>
 <span class="lang-pill"><strong>Français</strong> 1.7%</span>
 </div></div>
-<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Playtime Distribution</div>
-<div class="pt-bars">
-<div class="pt-row"><span class="pt-label"><50h</span><div class="pt-track"><div class="pt-fill" style="width:29.2%"></div></div><span class="pt-count">43,817</span></div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Playtime Distribution</div><div class="pt-bars">
+<div class="pt-row"><span class="pt-label">&lt;50h</span><div class="pt-track"><div class="pt-fill" style="width:29.2%"></div></div><span class="pt-count">43,817</span></div>
 <div class="pt-row"><span class="pt-label">50–200h</span><div class="pt-track"><div class="pt-fill" style="width:53.3%"></div></div><span class="pt-count">79,994</span></div>
 <div class="pt-row"><span class="pt-label">200h+</span><div class="pt-track"><div class="pt-fill" style="width:17.5%"></div></div><span class="pt-count">26,180</span></div>
 </div></div>
-<div class="section">
-<div class="section-heading pros">Pros</div>
-<ul class="item-list">
+<div class="section"><div class="section-heading pros">Pros</div><ul class="item-list">
 <li><span class="marker pros">&#9658;</span>Storytelling and characters are a masterpiece — morally complex narrative, choices with real consequences; Geralt, Ciri, Yennefer, and even minor NPCs feel fully realized</li>
-<li><span class="marker pros">&#9658;</span>Side quests rival entire games — 'Bloody Baron' questline universally cited as one of gaming's finest emotional experiences; none feel like filler</li>
-<li><span class="marker pros">&#9658;</span>Gwent, the in-game card game, has its own devoted following — players routinely 'forget' to find Ciri while pursuing the perfect deck</li>
-<li><span class="marker pros">&#9658;</span>DLC expansions set the gold standard — Hearts of Stone and Blood and Wine each deliver another full game's worth of premium content at a fraction of a new-game price</li>
-<li><span class="marker pros">&#9658;</span>World-building and atmosphere are unmatched — Velen's war-torn swamps, Skellige's windswept cliffs, Toussaint's sun-drenched vineyards all feel alive with history, weather, and ambient detail</li>
-<li><span class="marker pros">&#9658;</span>Soundtrack (Marcin Przybyłowicz) is widely described as an 'eargasm' — perfectly complements every moment from quiet sunsets to boss battles</li>
-<li><span class="marker pros">&#9658;</span>Exceptional replayability — reviewers on their 3rd, 5th, and 7th playthrough still discover new quests and details; 'still finding things after 450 hours'</li>
+<li><span class="marker pros">&#9658;</span>Side quests rival entire games — ‘Bloody Baron’ questline universally cited as one of gaming’s finest emotional experiences; none feel like filler</li>
+<li><span class="marker pros">&#9658;</span>Gwent, the in-game card game, has its own devoted following — players routinely ‘forget’ to find Ciri while pursuing the perfect deck</li>
+<li><span class="marker pros">&#9658;</span>DLC expansions set the gold standard — Hearts of Stone and Blood and Wine each deliver another full game’s worth of premium content at a fraction of a new-game price</li>
+<li><span class="marker pros">&#9658;</span>World-building and atmosphere are unmatched — Velen’s war-torn swamps, Skellige’s windswept cliffs, Toussaint’s sun-drenched vineyards all feel alive with history, weather, and ambient detail</li>
+<li><span class="marker pros">&#9658;</span>Soundtrack (Marcin Przybyłowicz) is widely described as an ‘eargasm’ — perfectly complements every moment from quiet sunsets to boss battles</li>
+<li><span class="marker pros">&#9658;</span>Exceptional replayability — reviewers on their 3rd, 5th, and 7th playthrough still discover new quests and details; ‘still finding things after 450 hours’</li>
 <li><span class="marker pros">&#9658;</span>Ten years on and still beats most modern releases — the 2022 Next-Gen update with ray tracing and DLSS breathed new visual life into the game</li>
 </ul></div>
-<div class="section">
-<div class="section-heading cons">Cons</div>
-<ul class="item-list">
-<li><span class="marker cons">&#9658;</span>Combat system has aged poorly — widely described as 'clunky,' 'simplistic,' or 'spam two abilities'; poor PC lock-on mechanic; bouncing off it is the most common reason newcomers quit early</li>
+<div class="section"><div class="section-heading cons">Cons</div><ul class="item-list">
+<li><span class="marker cons">&#9658;</span>Combat system has aged poorly — widely described as ‘clunky,’ ‘simplistic,’ or ‘spam two abilities’; poor PC lock-on mechanic; bouncing off it is the most common reason newcomers quit early</li>
 <li><span class="marker cons">&#9658;</span>The opening 2–3 hours are slow and overwhelming — new players are dropped into a dense cast of characters without context, and the pace feels sluggish before the world opens up</li>
-<li><span class="marker cons">&#9658;</span>Horse controls are stiff — turning Roach is frequently compared to 'rotating a cruise ship'; pathfinding glitches are a long-standing community joke</li>
-<li><span class="marker cons">&#9658;</span>Skill/build system is restrictive — limited active skill slots force generic choices; the Complete Edition's bonus gear (orange rarity) disrupts balance by being overpowered</li>
+<li><span class="marker cons">&#9658;</span>Horse controls are stiff — turning Roach is frequently compared to ‘rotating a cruise ship’; pathfinding glitches are a long-standing community joke</li>
+<li><span class="marker cons">&#9658;</span>Skill/build system is restrictive — limited active skill slots force generic choices; the Complete Edition’s bonus gear (orange rarity) disrupts balance by being overpowered</li>
 <li><span class="marker cons">&#9658;</span>No closure for newcomers lacking prior Witcher context — jumping in without Witcher 1/2 or the books leaves some character relationships unexplained</li>
 </ul></div>
-<div class="section">
-<div class="section-heading verdict">Analyst Verdict</div>
-<div class="verdict-body">
-<p>The Witcher 3: Wild Hunt is, by community consensus across 868,000+ reviews, one of the greatest games ever made — a distinction it has maintained for a full decade. CD Projekt Red crafted a world where even a mundane request to find a missing frying pan unfolds into something memorable, where the line between 'main quest' and 'side quest' dissolves entirely. The writing treats players as adults, presenting moral dilemmas without easy answers and characters whose flaws make them feel human rather than archetypal.</p>
-<p>The game's primary weakness is its combat, which feels more like a secondary system designed to punctuate the storytelling than a core pillar of gameplay. Players who approach it as an action game will bounce off; players who approach it as a narrative RPG where combat is the cost of admission will find everything else exceeds any reasonable expectation. The slow, disorienting opening is a genuine barrier, but nearly every reviewer who persisted past it describes a turning point — often within ten hours — where 'the world clicks.'</p>
-<p>The target audience is anyone who values story, atmosphere, and world-building above mechanical complexity. RPG veterans, Elder Scrolls fans seeking richer writing, and readers of Sapkowski's books will find the most resonance. The two DLC expansions (particularly Blood and Wine) are essential purchases — they represent some of the best content in the entire game. At current sale prices, the Complete Edition is among the best-value purchases in PC gaming history.</p>
+<div class="section"><div class="section-heading verdict">Analyst Verdict</div><div class="verdict-body">
+<p>The Witcher 3: Wild Hunt is, by community consensus across 868,000+ reviews, one of the greatest games ever made — a distinction it has maintained for a full decade. CD Projekt Red crafted a world where even a mundane request to find a missing frying pan unfolds into something memorable, where the line between ‘main quest’ and ‘side quest’ dissolves entirely. The writing treats players as adults, presenting moral dilemmas without easy answers and characters whose flaws make them feel human rather than archetypal.</p>
+<p>The game’s primary weakness is its combat, which feels more like a secondary system designed to punctuate the storytelling than a core pillar of gameplay. Players who approach it as an action game will bounce off; players who approach it as a narrative RPG where combat is the cost of admission will find everything else exceeds any reasonable expectation. The slow, disorienting opening is a genuine barrier, but nearly every reviewer who persisted past it describes a turning point — often within ten hours — where ‘the world clicks.’</p>
+<p>The target audience is anyone who values story, atmosphere, and world-building above mechanical complexity. RPG veterans, Elder Scrolls fans seeking richer writing, and readers of Sapkowski’s books will find the most resonance. The two DLC expansions (particularly Blood and Wine) are essential purchases — they represent some of the best content in the entire game. At current sale prices, the Complete Edition is among the best-value purchases in PC gaming history.</p>
 </div></div>
-<div class="section">
-<div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Community Voices</div>
-<div class="quotes">
-<div class="quote-card pos"><div class="quote-meta">836 votes | 115h</div><div class="quote-text">"I will leave the cat here, so that everybody who passes by can pet it and give it a thumbs up."</div></div>
-<div class="quote-card pos"><div class="quote-meta">681 votes | 155h</div><div class="quote-text">"And then I play Witcher 3. And suddenly I can't wait to get myself home after work. Do you have any idea how precious that feeling is?"</div></div>
-<div class="quote-card pos"><div class="quote-meta">490 votes | 128h</div><div class="quote-text">"I wish I could erase my memory of this game and play it again."</div></div>
-<div class="quote-card pos"><div class="quote-meta">425 votes | 381h</div><div class="quote-text">"It's 2024, and The Witcher 3 remains the best game I've ever played. I wish I could go back and experience it for the first time."</div></div>
-<div class="quote-card pos"><div class="quote-meta">357 votes | 256h</div><div class="quote-text">"You know a game is GOATED when you are on your 6th playthrough and still finding things you never experienced in previous playthroughs."</div></div>
-<div class="quote-card pos"><div class="quote-meta">159 votes | 343h</div><div class="quote-text">"I was ready to end my life before I bought this game... Now it's February. I'm still here. Still playing. And for the first time in a while, I'm glad I stayed."</div></div>
-<div class="quote-card pos"><div class="quote-meta">233 votes | 91h</div><div class="quote-text">"It's strange how the main game Gwent is hidden in some kind of weird story-driven RPG. The RPG is okay too I guess."</div></div>
-<div class="quote-card neg"><div class="quote-meta">43 votes | 9h</div><div class="quote-text">"Overrated and boring, very janky gameplay and I will never understand the hype."</div></div>
-<div class="quote-card neg"><div class="quote-meta">41 votes | 64h</div><div class="quote-text">"A bloated open world with mid combat and enemies with arbitrary levels above their head. The game starts off so slowly that 30 min in I'm already asleep."</div></div>
-<div class="quote-card neg"><div class="quote-meta">25 votes | 7h</div><div class="quote-text">"Atrocious combat mechanics, clunky movement, long boring dialogues. Easily the most overrated game in history."</div></div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Community Voices</div><div class="quotes">
+<div class="quote-card pos"><div class="quote-meta">836 votes | 115h</div><div class="quote-text">&#8220;I will leave the cat here, so that everybody who passes by can pet it and give it a thumbs up.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">681 votes | 155h</div><div class="quote-text">&#8220;And then I play Witcher 3. And suddenly I can’t wait to get myself home after work. Do you have any idea how precious that feeling is?&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">490 votes | 128h</div><div class="quote-text">&#8220;I wish I could erase my memory of this game and play it again.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">425 votes | 381h</div><div class="quote-text">&#8220;It’s 2024, and The Witcher 3 remains the best game I’ve ever played. I wish I could go back and experience it for the first time.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">357 votes | 256h</div><div class="quote-text">&#8220;You know a game is GOATED when you are on your 6th playthrough and still finding things you never experienced in previous playthroughs.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">159 votes | 343h</div><div class="quote-text">&#8220;I was ready to end my life before I bought this game... Now it’s February. I’m still here. Still playing. And for the first time in a while, I’m glad I stayed.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">233 votes | 91h</div><div class="quote-text">&#8220;It’s strange how the main game Gwent is hidden in some kind of weird story-driven RPG. The RPG is okay too I guess.&#8221;</div></div>
+<div class="quote-card neg"><div class="quote-meta">43 votes | 9h</div><div class="quote-text">&#8220;Overrated and boring, very janky gameplay and I will never understand the hype.&#8221;</div></div>
+<div class="quote-card neg"><div class="quote-meta">41 votes | 64h</div><div class="quote-text">&#8220;A bloated open world with mid combat and enemies with arbitrary levels above their head. The game starts off so slowly that 30 min in I’m already asleep.&#8221;</div></div>
+<div class="quote-card neg"><div class="quote-meta">25 votes | 7h</div><div class="quote-text">&#8220;Atrocious combat mechanics, clunky movement, long boring dialogues. Easily the most overrated game in history.&#8221;</div></div>
 </div></div>
-<div class="footer">
-Analysis: 149,991 reviews (from 868,357 total) &nbsp;|&nbsp; Positive: 95.5% &nbsp;|&nbsp; Avg playtime: 130.3h &nbsp;|&nbsp; Overwhelmingly Positive<br>
-Corpus: English 27.4% &nbsp;|&nbsp; Chinese 23.1% &nbsp;|&nbsp; Russian 14.4% &nbsp;|&nbsp; Brazilian 7.4% &nbsp;|&nbsp; Polish 6.6% &nbsp;|&nbsp; +5 more languages<br>
-Generated by Claude Code — manual analysis of top 600 English reviews by helpfulness votes &nbsp;|&nbsp; May 2026
-</div>
+<div class="footer">Analysis: 149,991 reviews (from 868,357 total) &nbsp;|&nbsp; Positive: 95.5% &nbsp;|&nbsp; Avg playtime: 130.3h &nbsp;|&nbsp; Overwhelmingly Positive<br>Corpus: English 27.4% &nbsp;|&nbsp; Chinese 23.1% &nbsp;|&nbsp; Russian 14.4% &nbsp;|&nbsp; Brazilian 7.4% &nbsp;|&nbsp; Polish 6.6% &nbsp;|&nbsp; +5 more languages<br>Generated by Claude Code — manual analysis of top 600 English reviews by helpfulness votes &nbsp;|&nbsp; May 2026</div>
 </div></body></html>

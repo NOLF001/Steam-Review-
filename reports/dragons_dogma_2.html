@@ -1,190 +1,193 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta property="og:title" content="Dragon's Dogma 2 — Steam Review Analysis">
-<meta property="og:description" content="49,998 reviews analyzed · 65.2% positive · Mixed">
-<title>Dragon's Dogma 2 — Steam Review Analysis</title>
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<nav class="nav-bar"><a href="index.html" class="nav-back">&#8592; Back to Dashboard</a></nav>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Steam review analysis of Dragon's Dogma 2 — Mixed (65.2% positive, 49,998 reviews analyzed)">
+<title>Dragon's Dogma 2 – Steam Review Analysis</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #1b2838;
+  color: #c7d5e0;
+  font-family: 'Motiva Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Nav */
+.nav-bar {
+  background: #16202c;
+  border-bottom: 1px solid #2a475e;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-back { color: #66c0f4; text-decoration: none; font-size: 14px; transition: color .15s; }
+.nav-back:hover { color: #8fd3f4; text-decoration: underline; }
+.nav-game { color: #8f98a0; font-size: 14px; }
+
+/* Container */
+.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+
+/* Header */
+.header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 20px; padding-bottom: 28px; margin-bottom: 32px;
+  border-bottom: 1px solid #2a475e;
+}
+.game-name { font-size: 32px; font-weight: bold; color: #fff; line-height: 1.2; margin-bottom: 6px; }
+.subtitle   { font-size: 15px; color: #8f98a0; }
+.header-right { text-align: right; flex-shrink: 0; }
+.steam-rating { font-size: 20px; font-weight: bold; color: #66c0f4; margin-bottom: 4px; }
+.review-count { font-size: 13px; color: #8f98a0; }
+
+/* Stats bar */
+.stats-bar {
+  background: #16202c; border: 1px solid #2a475e; border-radius: 6px;
+  padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 28px;
+}
+.stat-item { flex: 1; min-width: 120px; padding: 4px 16px; }
+.stat-item:first-child { padding-left: 0; }
+.stat-item + .stat-item { border-left: 1px solid #2a475e; }
+.stat-label { font-size: 10px; color: #8f98a0; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 3px; }
+.stat-value { font-size: 18px; font-weight: bold; color: #c7d5e0; display: block; }
+
+/* Ratio bar */
+.ratio-wrap { margin-bottom: 28px; }
+.ratio-labels { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
+.label-pos { color: #a4d007; font-weight: bold; }
+.label-neg { color: #e05c37; font-weight: bold; }
+.ratio-track { height: 6px; background: rgba(163,76,37,.35); border-radius: 3px; overflow: hidden; }
+.ratio-fill  { height: 100%; background: linear-gradient(90deg,#5c7e10,#a4d007); border-radius: 3px; }
+
+/* Language pills */
+.lang-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+.lang-pill { background: #16202c; border: 1px solid #2a475e; border-radius: 20px; padding: 4px 12px; font-size: 12px; color: #8f98a0; }
+.lang-pill strong { color: #c7d5e0; }
+
+/* Sections */
+.section { margin-bottom: 32px; }
+.section-heading { font-size: 24px; font-weight: bold; margin-bottom: 16px; }
+.section-heading.pros    { color: #5c7e10; }
+.section-heading.cons    { color: #a34c25; }
+.section-heading.verdict { color: #66c0f4; }
+.section-heading.stats   { color: #c7d5e0; }
+
+/* List items */
+.item-list { list-style: none; }
+.item-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+  line-height: 1.6; font-size: 15px;
+}
+.item-list li:last-child { border-bottom: none; }
+.marker      { flex-shrink: 0; margin-top: 2px; }
+.marker.pros { color: #5c7e10; }
+.marker.cons { color: #a34c25; }
+
+/* Verdict */
+.verdict-body {
+  border-left: 4px solid #66c0f4;
+  padding-left: 20px; font-size: 15px; line-height: 1.8; color: #c7d5e0;
+}
+.verdict-body p + p { margin-top: 14px; }
+
+/* Callout */
+.callout {
+  background: rgba(193,176,75,.08); border: 1px solid rgba(193,176,75,.3);
+  border-left: 4px solid #c1b04b; border-radius: 4px;
+  padding: 12px 16px; margin-bottom: 28px; font-size: 14px; line-height: 1.7;
+  color: #c7d5e0;
+}
+.callout-title { font-weight: bold; color: #c1b04b; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; }
+
+/* Quote cards */
+.quotes { display: flex; flex-direction: column; gap: 10px; }
+.quote-card { background: #16202c; border: 1px solid #2a475e; border-radius: 4px; padding: 12px 16px; }
+.quote-card.pos { border-left: 3px solid #5c7e10; }
+.quote-card.neg { border-left: 3px solid #a34c25; }
+.quote-meta { font-size: 11px; color: #8f98a0; margin-bottom: 5px; }
+.quote-text { font-size: 13.5px; font-style: italic; line-height: 1.6; }
+
+/* Playtime bars */
+.pt-bars { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.pt-label { width: 90px; color: #8f98a0; flex-shrink: 0; }
+.pt-track { flex: 1; background: #0e1923; border-radius: 2px; height: 14px; overflow: hidden; }
+.pt-fill  { height: 100%; border-radius: 2px; background: linear-gradient(90deg,#2a5f8a,#66c0f4); }
+.pt-count { width: 50px; text-align: right; color: #c7d5e0; }
+
+/* Footer */
+.footer {
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid #2a475e;
+  font-size: 12px; color: #566b7d; text-align: center; line-height: 1.8;
+}
+</style></head><body>
+<nav class="nav-bar"><a href="index.html" class="nav-back">&#8592; Back to Dashboard</a><span class="nav-game">Dragon's Dogma 2</span></nav>
 <div class="container">
-
-<div class="header">
-  <div class="game-title">Dragon's Dogma 2</div>
-  <div class="game-meta">
-    <a href="https://store.steampowered.com/app/2054970/Dragons_Dogma_2/" target="_blank" rel="noopener">Steam Store</a> &nbsp;|&nbsp;
-    Capcom &nbsp;|&nbsp; Released March 2024
-  </div>
-  <div class="rating-badge" style="background:#c6a84c;color:#1b2838">Mixed</div>
-</div>
-
+<div class="header"><div class="header-left"><div class="game-name">Dragon&#8217;s Dogma 2</div><div class="subtitle">Steam Review Analysis &nbsp;|&nbsp; Capcom &nbsp;|&nbsp; Released March 2024</div></div><div class="header-right"><div class="steam-rating" style="color:#c6a84c">Mixed</div><div class="review-count">49,998 reviews analyzed (of ~90,000 total)</div></div></div>
 <div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">49,998</div><div class="stat-label">Reviews Analyzed</div></div>
-  <div class="stat-item"><div class="stat-num">65.2%</div><div class="stat-label">Positive</div></div>
-  <div class="stat-item"><div class="stat-num">85.1h</div><div class="stat-label">Avg Playtime</div></div>
-  <div class="stat-item"><div class="stat-num">62.2h</div><div class="stat-label">Median Playtime</div></div>
+<div class="stat-item"><span class="stat-label">Positive Ratio</span><span class="stat-value">65.2%</span></div>
+<div class="stat-item"><span class="stat-label">Avg Playtime</span><span class="stat-value">85.1 h</span></div>
+<div class="stat-item"><span class="stat-label">Median Playtime</span><span class="stat-value">62.2 h</span></div>
+<div class="stat-item"><span class="stat-label">Total Reviews</span><span class="stat-value">~90,000</span></div>
 </div>
-
-<div class="section">
-  <h2>Recommendation Ratio</h2>
-  <div style="display:flex;height:24px;border-radius:4px;overflow:hidden">
-    <div style="width:65.2%;background:#4CAF50;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff">65.2%</div>
-    <div style="width:34.8%;background:#F44336;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff">35%</div>
-  </div>
-  <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:13px;color:#8f98a0">
-    <span>&#x2713; 32,620 recommended</span>
-    <span>&#x2715; 17,378 not recommended</span>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Language Distribution</h2>
-  <div style="display:flex;flex-wrap:wrap;gap:8px">
-    <span class="lang-pill">English 47.7%</span>
-    <span class="lang-pill">Simplified Chinese 17.9%</span>
-    <span class="lang-pill">Russian 5.6%</span>
-    <span class="lang-pill">Brazilian Portuguese 4.5%</span>
-    <span class="lang-pill">German 4.3%</span>
-    <span class="lang-pill">Spanish 3.6%</span>
-    <span class="lang-pill">French 3.5%</span>
-    <span class="lang-pill">Korean 2.7%</span>
-    <span class="lang-pill">Japanese 2.2%</span>
-    <span class="lang-pill">Other 6.0%</span>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Playtime Distribution</h2>
-  <p style="color:#8f98a0;font-size:13px;margin-bottom:12px">HLTB Main Story ~31h · Completionist ~93.5h</p>
-  <div class="pt-row"><span class="pt-label">&lt;20h</span><div style="background:#16202d;border-radius:4px;overflow:hidden;height:12px;margin:4px 0"><div style="width:16.3%;height:100%;background:#F44336"></div></div> <span class="pt-pct">16.3%</span></div>
-  <div class="pt-row"><span class="pt-label">20–60h</span><div style="background:#16202d;border-radius:4px;overflow:hidden;height:12px;margin:4px 0"><div style="width:31.9%;height:100%;background:#66c0f4"></div></div> <span class="pt-pct">31.9%</span></div>
-  <div class="pt-row"><span class="pt-label">60h+</span><div style="background:#16202d;border-radius:4px;overflow:hidden;height:12px;margin:4px 0"><div style="width:51.8%;height:100%;background:#4CAF50"></div></div> <span class="pt-pct">51.8%</span></div>
-</div>
-
-<div class="callout callout-warning">
-  <strong>&#9888; Launch Context: MTX Controversy &amp; Review Bomb</strong><br>
-  Dragon's Dogma 2 launched in March 2024 with day-1 microtransactions (Wakestones, port crystals),
-  severe CPU bottleneck performance issues, and Denuvo DRM. The combination triggered a review bomb
-  that pushed the score from "Very Positive" to "Mixed." Critical context: <strong>all MTX items
-  are obtainable for free in-game</strong>, in generous quantities. The performance issues,
-  however, were real — and were never fully resolved. Capcom did not release a hard mode or DLC,
-  and the game was effectively abandoned for Monster Hunter Wilds.
-  49% of the 50k sample reviews are from the Mar–May 2024 launch window.
-</div>
-
-<div class="section">
-  <h2>&#x2713; What Players Love</h2>
-  <ul class="pros-list">
-    <li><strong>Combat is the best physics-based action RPG combat of its generation</strong><br><span>Mounting a Cyclops mid-sprint, stabbing it in the eye while your pawn casts Maelstrom and another shouts coordinates — there is no other game that plays like this. Every attack has weight, timing, and consequence. Ten vocations (classes) each feel genuinely distinct, and the 'true ending' unlocks a Warfarer vocation that can equip every weapon simultaneously. Combat is the universal praise point from even the harshest critics.</span></li>
-    <li><strong>Open-world exploration dense with hand-crafted discoveries</strong><br><span>Every cliff, cave, and ruined tower has something: a hidden quest trigger, a unique monster encounter, a chest requiring a specific solution. The world rewards genuine off-path exploration in a way that feels designed rather than procedural. 'I was so immersed I almost forgot there was a main story.'</span></li>
-    <li><strong>The Pawn system remains uniquely brilliant</strong><br><span>Cross-player pawn sharing, adaptive AI that learns quest solutions, contextual commentary on the environment, and genuine party chemistry make the pawn system feel alive in a way no other game has replicated. Players with 1,000h cite it as a paradigm shift in how they think about companion AI. Even critics of DD2 defend the pawn system.</span></li>
-    <li><strong>The 'True Ending' is one of gaming's great hidden reveals</strong><br><span>The game's apparent ending at ~30-40 hours is a deliberate meta-narrative trap: you have been following the fate the Fate Weaver intended. Breaking free unlocks 'Dragon's Dogma II' — the real game. This revelation, documented by YouTuber PunkDuck in a widely-cited video, recontextualizes the entire experience and is seen by fans as series creator Hideaki Itsuno's statement on creative freedom vs. corporate control. Bravo.</span></li>
-    <li><strong>Character creator sets the genre standard</strong><br><span>Universally praised as one of the most capable character creators in gaming. Depth of facial sculpting, body proportions, and cosmetic options satisfies both speed-runners and the 'spent 4 hours in character creation' crowd. Pawn creator is equally detailed — your companion feels genuinely yours.</span></li>
-    <li><strong>Stunning world design and visual fidelity</strong><br><span>The RE Engine renders the world with exceptional detail: dynamic lighting, physics-driven foliage, realistic water, and expressive character animations. Even the most critical performance reviewers acknowledge the visuals are among the best in the genre. Night travel is genuinely dangerous and atmospheric.</span></li>
-  </ul>
-</div>
-
-<div class="section">
-  <h2>&#x2715; Common Criticisms</h2>
-  <ul class="cons-list">
-    <li><strong>Performance was never fixed — CPU bottleneck remains years after launch</strong><br><span>The RE Engine's CPU bottleneck causes severe frame drops in Vernworth and other NPC-dense areas, on hardware well above recommended specs. Critically: Capcom issued only a handful of patches post-launch before effectively abandoning the game for Monster Hunter Wilds. Reviews from late 2024 and 2025 confirm the performance is the same or worse. 'It's been two years. Still no optimization patch. This is unacceptable for a $70 game.'</span></li>
-    <li><strong>Enemy variety collapses after the first 10 hours</strong><br><span>Goblins, saurians, harpies, wolves, and bandits make up the overwhelming majority of every combat encounter — the same five types from Dragon's Dogma 1, across the entire map. Enemies missing from DD:Dark Arisen (Hydra, Basilisk, Cockatrice, full Beholder) were not replaced with anything comparable. 'Fighting the same enemies for literally every single step of the journey.'</span></li>
-    <li><strong>Story is nearly non-existent — a significant regression from DD:Dark Arisen</strong><br><span>The main quest is a thin series of largely disconnected missions with no meaningful world-building, characters, or dramatic stakes until the very end. 35 hours in, seasoned players report nothing of narrative consequence has happened. Compared to DD:DA — which had a complete arc including Bitterblack Isle's dark lore — DD2's base story is widely described as 'the first act of a game.'</span></li>
-    <li><strong>Game was effectively abandoned — no DLC, no hard mode, no content updates</strong><br><span>Capcom promised hard mode. It never came. No expansion was released (compare DD:Dark Arisen, which added substantial content to DD1). The Bitterblack Isle equivalent never materialized. Capcom moved resources to Monster Hunter Wilds. Community consensus: 'A glorified tech demo for MH Wilds.' Long-time fans who waited 12 years for this sequel feel genuinely betrayed.</span></li>
-    <li><strong>Single save slot corrupted progress for many players</strong><br><span>DD2 launched with a single save file per character. When the save corrupts (a known bug, not rare), you lose everything. A player at 90 hours lost all progress. The lack of save slot options is baffling QoL regression from modern standards. Modders quickly provided multi-save support that Capcom never officially added.</span></li>
-    <li><strong>Microtransaction controversy at launch (context: items are free in-game)</strong><br><span>Day-1 MTX for items like Wakestones and port crystals caused a review-bomb that tanked the score from 'Very Positive' to 'Mixed.' Critical context the review-bombers missed: every purchasable item is also obtainable for free in-game, in generous quantities. Many negative reviews on MTX grounds have since been acknowledged as reactionary. The MTX exist but are not pay-to-win. The launch communication was poor.</span></li>
-    <li><strong>Vocation system is a step back from DD:Dark Arisen</strong><br><span>Only 4 skills equipped at once (down from 6+ in DD:DA). Mystic Knight — a fan-favourite hybrid vocation — was cut entirely. Mage was reduced to a healing class with minimal offensive options. Sorcerer spells were gutted. The Magick Archer remains overpowered. Skill variety within vocations feels compressed rather than expanded.</span></li>
-  </ul>
-</div>
-
-<div class="section">
-  <h2>Verdict</h2>
-  <div class="verdict">
-    <p>Dragon's Dogma 2 is the most polarising game in the franchise — a sequel twelve years in the making
-that delivers the series' best combat and most disappointing everything else. The combat, pawn system,
-and world exploration are genuinely exceptional: physics-based action RPG gameplay that no competitor
-has replicated. The True Ending meta-narrative, once discovered, reveals a layer of intentional design
-that recontextualises the whole experience. For these things alone, the game earns passionate defenders.</p>
-    <p style="margin-top:14px">But the case against is equally compelling. The RE Engine's CPU bottleneck — severe at launch,
-never properly fixed — is inexcusable for a $70 Capcom release. Enemy variety collapses after ten hours.
-The story is so thin that veterans of Dragon's Dogma: Dark Arisen feel actively cheated. Hard mode
-was promised and never delivered. No expansion came. Capcom moved on. A game that wanted to be
-a ten-year Skyrim-style seller was treated as a financial year deadline product and left to die.
-The community's frustration is proportional to how good the foundation is.</p>
-    <p style="margin-top:14px"><strong>Buy it on sale (50%+ off) if you love action RPG combat above all else</strong> and can
-tolerate a thin story, repetitive encounters, and ongoing performance issues.
-<strong>Skip it if</strong> you need a narrative reason to keep playing, or if you have a
-CPU-bottleneck-sensitive setup. Play Dragon's Dogma: Dark Arisen first — it remains the better
-complete package. Watch PunkDuck's analysis videos before or after; they materially change
-how the game reads. This is a "best 7/10 game ever made" situation, and whether that's enough
-is entirely up to you.</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Community Voices</h2>
-  <div class="quotes">
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#F44336">Not Recommended</div>
-      <p class="quote-text">"BTW don't let the 2 hours trial fool you. The core game issues are not noticeable during the first couple of hours — excess trash mobs, lack of enemy variety, fetch quests, terrible story, rushed latter half — and the trial counts toward your Steam refund window. If you use the entire trial and decide to buy, you likely won't be able to refund it even if you don't play it after."</p>
-      <div class="quote-meta">1,969 helpful votes · 134h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#F44336">Not Recommended</div>
-      <p class="quote-text">"12 years and multiple spinoffs, service titles, and threats to Capcom to get this thing made, and it's a let down after all is said and done. The game proceeds to release into a state I didn't think was possible."</p>
-      <div class="quote-meta">1,931 helpful votes · 77h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#4CAF50">Recommended</div>
-      <p class="quote-text">"Being almost 70 years old, normally I cannot play games like this as my manual dexterity just is not on par. However, having AI control my partner and two hirelings allows me to form a well-rounded party. I have over 240 hours in this game and have loved every minute of it. Cudos to Capcom."</p>
-      <div class="quote-meta">855 helpful votes · 240h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#4CAF50">Recommended</div>
-      <p class="quote-text">"I've spent a little over 800 hours in this game. Gone through about 6.5 playthroughs. I'm going to try to be as unbiased as I possibly can: the game is not perfect, but the hate train has gone on long enough. For those who wonder what is going on — look past the launch controversy. The game is genuinely excellent."</p>
-      <div class="quote-meta">540 helpful votes · 1024h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#4CAF50">Recommended</div>
-      <p class="quote-text">"The entire first 30-40 hours of the game is a remaster of Dragon's Dogma. When you finally 'beat' the game at 40 hours, you haven't beaten it. 99% of players got the ending the Fate Weaver intended. But if you figure out how to actually beat the game — you get to start Dragon's Dogma II. That's right. The real sequel starts here."</p>
-      <div class="quote-meta">528 helpful votes · 185h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#4CAF50">Recommended</div>
-      <p class="quote-text">"This is one of the most disappointing games I have ever played. This is also one of my favorite games of all time."</p>
-      <div class="quote-meta">322 helpful votes · 60h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#4CAF50">Recommended</div>
-      <p class="quote-text">"That PunkDuck video gave me a new appreciation for this game, and Itsuno in general. What a G. Even if you don't plan to buy this game, please watch PunkDuck's video on Dragon's Dogma 1 first, then 2. This game is the result of an incredible story, and one massive 'F**k you' to video game execs. Bravo."</p>
-      <div class="quote-meta">202 helpful votes · 1h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#F44336">Not Recommended</div>
-      <p class="quote-text">"Save file corrupted after 90 hours. Lost all progress. Seems to be a common issue. Don't limit players to one save file if save files can be bricked at any time."</p>
-      <div class="quote-meta">982 helpful votes · 121h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#F44336">Not Recommended</div>
-      <p class="quote-text">"Playing DD2 feels like eating the best slice of cake up until you find a dead cockroach in the middle of it."</p>
-      <div class="quote-meta">338 helpful votes · 30h playtime</div>
-    </div>
-    <div class="quote-card">
-      <div class="quote-tag" style="color:#F44336">Not Recommended</div>
-      <p class="quote-text">"I think the game overall was pretty good, but they dropped the game and a patch or two, then said 'screw it.' Game hasn't been updated since. Hard mode was never added. Great experience, but the developers stopped caring almost immediately."</p>
-      <div class="quote-meta">250 helpful votes · 81h playtime</div>
-    </div>
-  </div>
-</div>
-
-<div class="footer">
-  Analysis based on 49,998 Steam reviews collected 2026-05-13 &nbsp;|&nbsp;
-  <a href="https://store.steampowered.com/app/2054970/Dragons_Dogma_2/" target="_blank" rel="noopener">View on Steam</a>
-</div>
-
-</div>
-</body>
-</html>
+<div class="ratio-wrap"><div class="ratio-labels"><span class="label-pos">&#9650; Recommended &nbsp; 32,620 (65.2%)</span><span class="label-neg">17,378 (34.8%) &nbsp; Not Recommended &#9650;</span></div><div class="ratio-track"><div class="ratio-fill" style="width:65.2%"></div></div></div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Language Distribution (top 10)</div><div class="lang-bar">
+<span class="lang-pill"><strong>English</strong> 47.7%</span>
+<span class="lang-pill"><strong>Simplified Chinese</strong> 17.9%</span>
+<span class="lang-pill"><strong>Russian</strong> 5.6%</span>
+<span class="lang-pill"><strong>Brazilian Portuguese</strong> 4.5%</span>
+<span class="lang-pill"><strong>German</strong> 4.3%</span>
+<span class="lang-pill"><strong>Spanish</strong> 3.6%</span>
+<span class="lang-pill"><strong>French</strong> 3.5%</span>
+<span class="lang-pill"><strong>Korean</strong> 2.7%</span>
+<span class="lang-pill"><strong>Japanese</strong> 2.2%</span>
+<span class="lang-pill"><strong>Other</strong> 6.0%</span>
+</div></div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Playtime Distribution</div><div class="pt-bars">
+<div class="pt-row"><span class="pt-label">&lt;20h</span><div class="pt-track"><div class="pt-fill" style="width:16.3%"></div></div><span class="pt-count">8,150</span></div>
+<div class="pt-row"><span class="pt-label">20–60h</span><div class="pt-track"><div class="pt-fill" style="width:31.9%"></div></div><span class="pt-count">15,949</span></div>
+<div class="pt-row"><span class="pt-label">60h+</span><div class="pt-track"><div class="pt-fill" style="width:51.8%"></div></div><span class="pt-count">25,899</span></div>
+</div></div>
+<div class="callout"><div class="callout-title">⚠ Launch Context: MTX Controversy &amp; Review Bomb</div>Dragon’s Dogma 2 launched in March 2024 with day-1 microtransactions (Wakestones, port crystals), severe CPU bottleneck performance issues, and Denuvo DRM. The combination triggered a review bomb that pushed the score from “Very Positive” to “Mixed.” Critical context: <strong>all MTX items are obtainable for free in-game</strong>, in generous quantities. The performance issues, however, were real — and were never fully resolved. Capcom did not release a hard mode or DLC, and the game was effectively abandoned for Monster Hunter Wilds. 49% of the 50k sample reviews are from the Mar–May 2024 launch window.</div>
+<div class="section"><div class="section-heading pros">Pros</div><ul class="item-list">
+<li><span class="marker pros">&#9658;</span><strong>Combat is the best physics-based action RPG combat of its generation</strong> &#8212; Mounting a Cyclops mid-sprint, stabbing it in the eye while your pawn casts Maelstrom and another shouts coordinates — there is no other game that plays like this. Every attack has weight, timing, and consequence. Ten vocations (classes) each feel genuinely distinct, and the ‘true ending’ unlocks a Warfarer vocation that can equip every weapon simultaneously. Combat is the universal praise point from even the harshest critics.</li>
+<li><span class="marker pros">&#9658;</span><strong>Open-world exploration dense with hand-crafted discoveries</strong> &#8212; Every cliff, cave, and ruined tower has something: a hidden quest trigger, a unique monster encounter, a chest requiring a specific solution. The world rewards genuine off-path exploration in a way that feels designed rather than procedural. ‘I was so immersed I almost forgot there was a main story.’</li>
+<li><span class="marker pros">&#9658;</span><strong>The Pawn system remains uniquely brilliant</strong> &#8212; Cross-player pawn sharing, adaptive AI that learns quest solutions, contextual commentary on the environment, and genuine party chemistry make the pawn system feel alive in a way no other game has replicated. Players with 1,000h cite it as a paradigm shift in how they think about companion AI. Even critics of DD2 defend the pawn system.</li>
+<li><span class="marker pros">&#9658;</span><strong>The ‘True Ending’ is one of gaming’s great hidden reveals</strong> &#8212; The game’s apparent ending at ~30–40 hours is a deliberate meta-narrative trap: you have been following the fate the Fate Weaver intended. Breaking free unlocks ‘Dragon’s Dogma II’ — the real game. This revelation, documented by YouTuber PunkDuck in a widely-cited video, recontextualizes the entire experience and is seen by fans as series creator Hideaki Itsuno’s statement on creative freedom vs. corporate control. Bravo.</li>
+<li><span class="marker pros">&#9658;</span><strong>Character creator sets the genre standard</strong> &#8212; Universally praised as one of the most capable character creators in gaming. Depth of facial sculpting, body proportions, and cosmetic options satisfies both speed-runners and the ‘spent 4 hours in character creation’ crowd. Pawn creator is equally detailed — your companion feels genuinely yours.</li>
+<li><span class="marker pros">&#9658;</span><strong>Stunning world design and visual fidelity</strong> &#8212; The RE Engine renders the world with exceptional detail: dynamic lighting, physics-driven foliage, realistic water, and expressive character animations. Even the most critical performance reviewers acknowledge the visuals are among the best in the genre. Night travel is genuinely dangerous and atmospheric.</li>
+</ul></div>
+<div class="section"><div class="section-heading cons">Cons</div><ul class="item-list">
+<li><span class="marker cons">&#9658;</span><strong>Performance was never fixed — CPU bottleneck remains years after launch</strong> &#8212; The RE Engine’s CPU bottleneck causes severe frame drops in Vernworth and other NPC-dense areas, on hardware well above recommended specs. Critically: Capcom issued only a handful of patches post-launch before effectively abandoning the game for Monster Hunter Wilds. Reviews from late 2024 and 2025 confirm the performance is the same or worse. ‘It’s been two years. Still no optimization patch. This is unacceptable for a $70 game.’</li>
+<li><span class="marker cons">&#9658;</span><strong>Enemy variety collapses after the first 10 hours</strong> &#8212; Goblins, saurians, harpies, wolves, and bandits make up the overwhelming majority of every combat encounter — the same five types from Dragon’s Dogma 1, across the entire map. Enemies missing from DD:Dark Arisen (Hydra, Basilisk, Cockatrice, full Beholder) were not replaced with anything comparable. ‘Fighting the same enemies for literally every single step of the journey.’</li>
+<li><span class="marker cons">&#9658;</span><strong>Story is nearly non-existent — a significant regression from DD:Dark Arisen</strong> &#8212; The main quest is a thin series of largely disconnected missions with no meaningful world-building, characters, or dramatic stakes until the very end. 35 hours in, seasoned players report nothing of narrative consequence has happened. Compared to DD:DA — which had a complete arc including Bitterblack Isle’s dark lore — DD2’s base story is widely described as ‘the first act of a game.’</li>
+<li><span class="marker cons">&#9658;</span><strong>Game was effectively abandoned — no DLC, no hard mode, no content updates</strong> &#8212; Capcom promised hard mode. It never came. No expansion was released (compare DD:Dark Arisen, which added substantial content to DD1). The Bitterblack Isle equivalent never materialized. Capcom moved resources to Monster Hunter Wilds. Community consensus: ‘A glorified tech demo for MH Wilds.’ Long-time fans who waited 12 years for this sequel feel genuinely betrayed.</li>
+<li><span class="marker cons">&#9658;</span><strong>Single save slot corrupted progress for many players</strong> &#8212; DD2 launched with a single save file per character. When the save corrupts (a known bug, not rare), you lose everything. A player at 90 hours lost all progress. The lack of save slot options is baffling QoL regression from modern standards. Modders quickly provided multi-save support that Capcom never officially added.</li>
+<li><span class="marker cons">&#9658;</span><strong>Microtransaction controversy at launch (context: items are free in-game)</strong> &#8212; Day-1 MTX for items like Wakestones and port crystals caused a review-bomb that tanked the score from ‘Very Positive’ to ‘Mixed.’ Critical context the review-bombers missed: every purchasable item is also obtainable for free in-game, in generous quantities. Many negative reviews on MTX grounds have since been acknowledged as reactionary. The MTX exist but are not pay-to-win. The launch communication was poor.</li>
+<li><span class="marker cons">&#9658;</span><strong>Vocation system is a step back from DD:Dark Arisen</strong> &#8212; Only 4 skills equipped at once (down from 6+ in DD:DA). Mystic Knight — a fan-favourite hybrid vocation — was cut entirely. Mage was reduced to a healing class with minimal offensive options. Sorcerer spells were gutted. The Magick Archer remains overpowered. Skill variety within vocations feels compressed rather than expanded.</li>
+</ul></div>
+<div class="section"><div class="section-heading verdict">Analyst Verdict</div><div class="verdict-body">
+<p>Dragon’s Dogma 2 is the most polarising game in the franchise — a sequel twelve years in the making that delivers the series’ best combat and most disappointing everything else. The combat, pawn system, and world exploration are genuinely exceptional: physics-based action RPG gameplay that no competitor has replicated. The True Ending meta-narrative, once discovered, reveals a layer of intentional design that recontextualises the whole experience. For these things alone, the game earns passionate defenders.</p>
+<p>But the case against is equally compelling. The RE Engine’s CPU bottleneck — severe at launch, never properly fixed — is inexcusable for a $70 Capcom release. Enemy variety collapses after ten hours. The story is so thin that veterans of Dragon’s Dogma: Dark Arisen feel actively cheated. Hard mode was promised and never delivered. No expansion came. Capcom moved on. A game that wanted to be a ten-year Skyrim-style seller was treated as a financial year deadline product and left to die. The community’s frustration is proportional to how good the foundation is.</p>
+<p><strong>Buy it on sale (50%+ off) if you love action RPG combat above all else</strong> and can tolerate a thin story, repetitive encounters, and ongoing performance issues. <strong>Skip it if</strong> you need a narrative reason to keep playing, or if you have a CPU-bottleneck-sensitive setup. Play Dragon’s Dogma: Dark Arisen first — it remains the better complete package. Watch PunkDuck’s analysis videos before or after; they materially change how the game reads. This is a “best 7/10 game ever made” situation, and whether that’s enough is entirely up to you.</p>
+</div></div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Community Voices</div><div class="quotes">
+<div class="quote-card neg"><div class="quote-meta">1,969 votes | 134h</div><div class="quote-text">&#8220;BTW don’t let the 2 hours trial fool you. The core game issues are not noticeable during the first couple of hours — excess trash mobs, lack of enemy variety, fetch quests, terrible story, rushed latter half — and the trial counts toward your Steam refund window. If you use the entire trial and decide to buy, you likely won’t be able to refund it even if you don’t play it after.&#8221;</div></div>
+<div class="quote-card neg"><div class="quote-meta">1,931 votes | 77h</div><div class="quote-text">&#8220;12 years and multiple spinoffs, service titles, and threats to Capcom to get this thing made, and it’s a let down after all is said and done. The game proceeds to release into a state I didn’t think was possible.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">855 votes | 240h</div><div class="quote-text">&#8220;Being almost 70 years old, normally I cannot play games like this as my manual dexterity just is not on par. However, having AI control my partner and two hirelings allows me to form a well-rounded party. I have over 240 hours in this game and have loved every minute of it. Cudos to Capcom.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">540 votes | 1,024h</div><div class="quote-text">&#8220;I’ve spent a little over 800 hours in this game. Gone through about 6.5 playthroughs. I’m going to try to be as unbiased as I possibly can: the game is not perfect, but the hate train has gone on long enough. For those who wonder what is going on — look past the launch controversy. The game is genuinely excellent.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">528 votes | 185h</div><div class="quote-text">&#8220;The entire first 30–40 hours of the game is a remaster of Dragon’s Dogma. When you finally ‘beat’ the game at 40 hours, you haven’t beaten it. 99% of players got the ending the Fate Weaver intended. But if you figure out how to actually beat the game — you get to start Dragon’s Dogma II. That’s right. The real sequel starts here.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">322 votes | 60h</div><div class="quote-text">&#8220;This is one of the most disappointing games I have ever played. This is also one of my favorite games of all time.&#8221;</div></div>
+<div class="quote-card pos"><div class="quote-meta">202 votes | 1h</div><div class="quote-text">&#8220;That PunkDuck video gave me a new appreciation for this game, and Itsuno in general. What a G. Even if you don’t plan to buy this game, please watch PunkDuck’s video on Dragon’s Dogma 1 first, then 2. This game is the result of an incredible story, and one massive ‘F**k you’ to video game execs. Bravo.&#8221;</div></div>
+<div class="quote-card neg"><div class="quote-meta">982 votes | 121h</div><div class="quote-text">&#8220;Save file corrupted after 90 hours. Lost all progress. Seems to be a common issue. Don’t limit players to one save file if save files can be bricked at any time.&#8221;</div></div>
+<div class="quote-card neg"><div class="quote-meta">338 votes | 30h</div><div class="quote-text">&#8220;Playing DD2 feels like eating the best slice of cake up until you find a dead cockroach in the middle of it.&#8221;</div></div>
+<div class="quote-card neg"><div class="quote-meta">250 votes | 81h</div><div class="quote-text">&#8220;I think the game overall was pretty good, but they dropped the game and a patch or two, then said ‘screw it.’ Game hasn’t been updated since. Hard mode was never added. Great experience, but the developers stopped caring almost immediately.&#8221;</div></div>
+</div></div>
+<div class="footer">Analysis: 49,998 reviews (from ~90,000 total) &nbsp;|&nbsp; Positive: 65.2% &nbsp;|&nbsp; Avg playtime: 85.1h &nbsp;|&nbsp; Mixed<br>Corpus: English 47.7% &nbsp;|&nbsp; Chinese 17.9% &nbsp;|&nbsp; Russian 5.6% &nbsp;|&nbsp; Brazilian 4.5% &nbsp;|&nbsp; German 4.3% &nbsp;|&nbsp; +5 more languages<br>Generated by Claude Code — manual analysis of top 600 English reviews by helpfulness votes &nbsp;|&nbsp; May 2026</div>
+</div></body></html>
