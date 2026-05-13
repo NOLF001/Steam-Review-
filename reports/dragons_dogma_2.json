@@ -1,0 +1,15 @@
+{
+  "game_name": "Dragon's Dogma 2",
+  "slug": "dragons_dogma_2",
+  "steam_rating": "Mixed",
+  "positive_ratio": 65.2,
+  "total_analyzed": 49998,
+  "generated_at": "2026-05-13T17:00:00",
+  "metadata": {
+    "input_file": "dragons_dogma_2_reviews.csv",
+    "total_steam_reviews": 90000,
+    "avg_playtime_hours": 85.1,
+    "median_playtime_hours": 62.2,
+    "note": "50k sample. Manual analysis by Claude Code. Notable: MTX review bomb at launch (items are free in-game), persistent CPU bottleneck never patched, game abandoned without DLC/hard mode. True Ending meta-narrative widely praised by those who discovered it. Combat universally praised even by critics."
+  }
+}
