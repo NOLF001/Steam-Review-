@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Steam review analysis of Horizon Forbidden West Complete Edition — Very Positive (88.4% positive, 28,632 reviews)">
+<meta property="og:title" content="Horizon Forbidden West – Steam Review Analysis">
+<title>Horizon Forbidden West – Steam Review Analysis</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #1b2838; color: #c7d5e0;
+  font-family: 'Motiva Sans', Arial, sans-serif;
+  font-size: 16px; line-height: 1.6;
+}
+.nav-bar {
+  background: #16202c; border-bottom: 1px solid #2a475e;
+  padding: 10px 24px; display: flex; align-items: center; gap: 16px;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-back { color: #66c0f4; text-decoration: none; font-size: 14px; transition: color .15s; }
+.nav-back:hover { color: #8fd3f4; text-decoration: underline; }
+.nav-game { color: #8f98a0; font-size: 14px; }
+.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+.header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 20px; padding-bottom: 28px; margin-bottom: 32px; border-bottom: 1px solid #2a475e;
+}
+.game-name { font-size: 32px; font-weight: bold; color: #fff; line-height: 1.2; margin-bottom: 6px; }
+.subtitle   { font-size: 15px; color: #8f98a0; }
+.header-right { text-align: right; flex-shrink: 0; }
+.steam-rating { font-size: 20px; font-weight: bold; color: #66c0f4; margin-bottom: 4px; }
+.review-count { font-size: 13px; color: #8f98a0; }
+.stats-bar {
+  background: #16202c; border: 1px solid #2a475e; border-radius: 6px;
+  padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 28px;
+}
+.stat-item { flex: 1; min-width: 120px; padding: 4px 16px; }
+.stat-item:first-child { padding-left: 0; }
+.stat-item + .stat-item { border-left: 1px solid #2a475e; }
+.stat-label { font-size: 10px; color: #8f98a0; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 3px; }
+.stat-value { font-size: 18px; font-weight: bold; color: #c7d5e0; display: block; }
+.ratio-wrap { margin-bottom: 28px; }
+.ratio-labels { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
+.label-pos { color: #a4d007; font-weight: bold; }
+.label-neg { color: #e05c37; font-weight: bold; }
+.ratio-track { height: 6px; background: rgba(163,76,37,.35); border-radius: 3px; overflow: hidden; }
+.ratio-fill  { height: 100%; background: linear-gradient(90deg,#5c7e10,#a4d007); border-radius: 3px; }
+.lang-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+.lang-pill { background: #16202c; border: 1px solid #2a475e; border-radius: 20px; padding: 4px 12px; font-size: 12px; color: #8f98a0; }
+.lang-pill strong { color: #c7d5e0; }
+.section { margin-bottom: 32px; }
+.section-heading { font-size: 24px; font-weight: bold; margin-bottom: 16px; }
+.section-heading.pros    { color: #5c7e10; }
+.section-heading.cons    { color: #a34c25; }
+.section-heading.verdict { color: #66c0f4; }
+.section-heading.stats   { color: #c7d5e0; }
+.item-list { list-style: none; }
+.item-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+  line-height: 1.6; font-size: 15px;
+}
+.item-list li:last-child { border-bottom: none; }
+.marker      { flex-shrink: 0; margin-top: 2px; }
+.marker.pros { color: #5c7e10; }
+.marker.cons { color: #a34c25; }
+.verdict-body {
+  border-left: 4px solid #66c0f4; padding-left: 20px;
+  font-size: 15px; line-height: 1.8; color: #c7d5e0;
+}
+.verdict-body p + p { margin-top: 14px; }
+.quotes { display: flex; flex-direction: column; gap: 10px; }
+.quote-card { background: #16202c; border: 1px solid #2a475e; border-radius: 4px; padding: 12px 16px; }
+.quote-card.pos { border-left: 3px solid #5c7e10; }
+.quote-card.neg { border-left: 3px solid #a34c25; }
+.quote-meta { font-size: 11px; color: #8f98a0; margin-bottom: 5px; }
+.quote-text { font-size: 13.5px; font-style: italic; line-height: 1.6; }
+.pt-bars { display: flex; flex-direction: column; gap: 8px; }
+.pt-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.pt-label { width: 90px; color: #8f98a0; flex-shrink: 0; }
+.pt-track { flex: 1; background: #0e1923; border-radius: 2px; height: 14px; overflow: hidden; }
+.pt-fill  { height: 100%; border-radius: 2px; background: linear-gradient(90deg,#2a5f8a,#66c0f4); }
+.pt-count { width: 50px; text-align: right; color: #c7d5e0; }
+.footer {
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid #2a475e;
+  font-size: 12px; color: #566b7d; text-align: center; line-height: 1.8;
+}
+</style></head><body>
+<nav class="nav-bar"><a href="index.html" class="nav-back">&#8592; Back to Dashboard</a><span class="nav-game">Horizon Forbidden West Complete Edition</span></nav>
+<div class="container">
+<div class="header">
+<div class="header-left">
+<div class="game-name">Horizon Forbidden West<br><span style="font-size:20px;font-weight:normal;color:#8f98a0">Complete Edition</span></div>
+<div class="subtitle">Steam Review Analysis &nbsp;|&nbsp; Guerrilla Games &nbsp;|&nbsp; PC Release 2024.03</div>
+</div>
+<div class="header-right">
+<div class="steam-rating">Very Positive</div>
+<div class="review-count">28,632 reviews analyzed</div>
+</div>
+</div>
+<div class="stats-bar">
+<div class="stat-item"><span class="stat-label">Positive Ratio</span><span class="stat-value">88.4%</span></div>
+<div class="stat-item"><span class="stat-label">Avg Playtime</span><span class="stat-value">107.0 h</span></div>
+<div class="stat-item"><span class="stat-label">Median Playtime</span><span class="stat-value">82.4 h</span></div>
+<div class="stat-item"><span class="stat-label">Total Reviews</span><span class="stat-value">28,632</span></div>
+</div>
+<div class="ratio-wrap">
+<div class="ratio-labels"><span class="label-pos">&#9650; Recommended &nbsp; 25,301 (88.4%)</span><span class="label-neg">3,331 (11.6%) &nbsp; Not Recommended &#9650;</span></div>
+<div class="ratio-track"><div class="ratio-fill" style="width:88.4%"></div></div>
+</div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Language Distribution (top 10)</div>
+<div class="lang-bar">
+<span class="lang-pill"><strong>English</strong> 49.8%</span>
+<span class="lang-pill"><strong>简体中文</strong> 8.3%</span>
+<span class="lang-pill"><strong>Deutsch</strong> 8.2%</span>
+<span class="lang-pill"><strong>Português-BR</strong> 5.0%</span>
+<span class="lang-pill"><strong>Русский</strong> 4.6%</span>
+<span class="lang-pill"><strong>Français</strong> 4.4%</span>
+<span class="lang-pill"><strong>Español</strong> 4.0%</span>
+<span class="lang-pill"><strong>Polski</strong> 3.2%</span>
+<span class="lang-pill"><strong>한국어</strong> 2.5%</span>
+<span class="lang-pill"><strong>Italiano</strong> 1.6%</span>
+</div></div>
+<div class="section"><div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Playtime Distribution</div>
+<div class="pt-bars">
+<div class="pt-row"><span class="pt-label"><30h</span><div class="pt-track"><div class="pt-fill" style="width:15.7%"></div></div><span class="pt-count">4,497</span></div>
+<div class="pt-row"><span class="pt-label">30–80h</span><div class="pt-track"><div class="pt-fill" style="width:32.6%"></div></div><span class="pt-count">9,345</span></div>
+<div class="pt-row"><span class="pt-label">80h+</span><div class="pt-track"><div class="pt-fill" style="width:51.7%"></div></div><span class="pt-count">14,790</span></div>
+</div></div>
+<div class="section">
+<div class="section-heading pros">Pros</div>
+<ul class="item-list">
+<li><span class="marker pros">&#9658;</span>Nixxes PC port sets the new industry benchmark — no Denuvo, no MTX, Burning Shores DLC bundled at no extra cost, stable performance across wide hardware range; reviewed against Dragon's Dogma 2's disastrous PC launch as the exact opposite of how not to port; the #1 helpfulness-ranked review (3,392 votes) is a meme about Nixxes's superiority over other porting studios</li>
+<li><span class="marker pros">&#9658;</span>Visuals are best-in-class for open-world games — consistently rated 'you forget what reality is' on the community's graphics checklist format; described as comparable to RDR2 in fidelity; scales well via FSR/DLSS, with RTX 3050 laptops reaching 60fps on mid settings and 4070 rigs running 100+ fps at 1440p Ultra</li>
+<li><span class="marker pros">&#9658;</span>Expanded traversal and combat over Zero Dawn — flying mounts fundamentally open the world; underwater diving adds a dimension the first game lacked; weapon variety (bows, slings, traps, melee) and elemental combat are genuinely deeper; machine design is universally praised as spectacular; skill tree improved from HZD with more meaningful choices</li>
+<li><span class="marker pros">&#9658;</span>Side content and open-world density — the game's tribes (Utaru, Quen, Tenakth, Oseram) are each given distinct culture and lore; Cauldrons and Tallnecks are redesigned to feel unique rather than templated; the world rewards exploration without the filler-quest padding of lesser open-world games</li>
+<li><span class="marker pros">&#9658;</span>Story, characters, and production values — strong ensemble cast, excellent motion capture widely described as some of the best in gaming; Lance Reddick's Sylens is specifically mourned by the community; Burning Shores DLC praised as a worthy coda; main story delivers consistent narrative momentum even if it doesn't reach Zero Dawn's peak</li>
+<li><span class="marker pros">&#9658;</span>Complete Edition value — Burning Shores DLC, extensive HUD customization, autoloot QoL option, photo mode; the PC release is, in the community's words, 'what every AAA game should look like at launch'</li>
+<li><span class="marker pros">&#9658;</span>Community meta-pattern: the 'Bloodborne PC' phenomenon — a uniquely charming feature of the HFW review corpus is the enormous number of reviews that are primarily Sony goodwill deposits requesting Bloodborne/God of War Ragnarok/TLOU2 PC ports; this attests to how thoroughly Nixxes's work has converted console gamers into PC advocates</li>
+</ul></div>
+<div class="section">
+<div class="section-heading cons">Cons</div>
+<ul class="item-list">
+<li><span class="marker cons">&#9658;</span>Story fails to replicate Zero Dawn's revelatory mystery — the original game was built on a single escalating question ('what are the machines?') that paid off with one of gaming's great reveals; FW cannot reproduce that first-discovery feeling; the villain's motivation is weaker, the world's central mystery already solved, and Sylens — the most-liked character — barely appears; negative reviewers who loved ZD return specifically to articulate this disappointment</li>
+<li><span class="marker cons">&#9658;</span>Aloy's intrusive commentary eliminates exploration — the most-cited specific gameplay criticism: Aloy narrates her intended next action before the player can think ('I bet I can climb this wall' while the player is still scanning the ledge; 'I wonder if there's anything interesting at the top?' before looking at a signal tower from a distance); a 131-vote negative review reproduces her dialogue verbatim to devastating comic effect; the system prioritizes accessibility over discovery</li>
+<li><span class="marker cons">&#9658;</span>Bloat and grind over Zero Dawn's focus — FW adopted 'more is more' where ZD was precise; too many weapon types (many redundant), heavy machine-part grinding for upgrades, errand-heavy side missions, and an overlong runtime; 'an 80-hour game of chores' is a recurring critical summary; players who completed a focused ZD playthrough feel the pacing regression acutely</li>
+<li><span class="marker cons">&#9658;</span>Melee combat remains underdeveloped — despite improvements over ZD, melee is consistently flagged as the weakest pillar of an otherwise strong combat system; the spear feels underpowered against machines designed to be fought with ranged weapons, making close-quarters engagements frustrating rather than empowering</li>
+<li><span class="marker cons">&#9658;</span>Culture-war review pollution — 'Sweet Baby Inc' accusations and 'girl boss' complaints about Aloy's characterization appear in the negative review corpus; less dominant than Skyrim's Charlie Kirk situation but present enough to appear in the top negative bigrams; does not reflect the game's actual content meaningfully</li>
+</ul></div>
+<div class="section">
+<div class="section-heading verdict">Analyst Verdict</div>
+<div class="verdict-body">
+<p>Horizon Forbidden West Complete Edition is a technically exceptional sequel that delivers on nearly every production value promise while stumbling on the one quality players loved most about its predecessor: the sense of uncovering something unprecedented. Guerrilla Games correctly identified that more combat options, traversal variety, and world scale would improve the experience — and mechanically, they were right. Flying mounts, expanded skill trees, and machine variety are genuine upgrades. Nixxes's March 2024 PC port, meanwhile, set an industry benchmark that the community has adopted as a reference point: no Denuvo, no MTX, Burning Shores DLC bundled, excellent hardware scaling. The highest-voted review in the corpus is a meme ranking porting studios by competence, with Nixxes alone given the "monolith" emoji — a testament to how rare this level of craftsmanship has become.</p>
+<p>Where Forbidden West falls short is the less quantifiable quality that made Zero Dawn special. The first game was a mystery box with one of gaming's great reveals; the sequel inherits a world already explained, and its narrative engine is a well-executed but standard open-world affair of assembling allies and confronting a villain. The community's near-universal comparison to ZD as the higher water mark is not dismissive — most reviewers recommend FW while making it — but it shapes how the game's considerable strengths are received. The most-cited specific flaw, Aloy's constant intrusive commentary during exploration, is symptomatic of a broader design philosophy that prizes accessibility over the friction of discovery: she tells the player where to climb before they've noticed the ledge, solving puzzles aloud before the player can think.</p>
+<p>The target audience is anyone who played Zero Dawn and wants more Horizon, approached as an evolution rather than a revelation. New players should start with Zero Dawn first — the emotional investment pays compounding dividends in Forbidden West. The Complete Edition's value proposition (Burning Shores included, no additional costs) is strong at any sale price. Players sensitive to open-world bloat should set a comfortable difficulty and resist the completionist pull past the main story and faction questlines, where the game is most focused. For PC players, this is one of the best-looking and best-optimized releases of 2024 — the port alone justifies the purchase price for returning console players.</p>
+</div></div>
+<div class="section">
+<div class="section-heading stats" style="font-size:17px;margin-bottom:12px;">Community Voices</div>
+<div class="quotes">
+<div class="quote-card pos"><div class="quote-meta">3,392 votes | 112h</div><div class="quote-text">"Porting studios be like: Iron Galaxy: 💩 Aspyr: 🤡 Nixxes: 🗿  Ghost of Tsushima is in good hands. Now how many copies of this do I need to buy in order for them to port Bloodborne?"</div></div>
+<div class="quote-card pos"><div class="quote-meta">1,283 votes | 90h</div><div class="quote-text">"Bought three days after it was released: No garbage PC-port-performance (GJ Nixxes). No BS microtransactions like other SP games, instead it's actually a 'Complete Edition'. No Denuvo. My deduction: I must be dreaming to see something like this release in 2024."</div></div>
+<div class="quote-card pos"><div class="quote-meta">969 votes | 44h</div><div class="quote-text">"Playing Horizon Forbidden West with my cat. She spends the entire time trying to swat at the mechanical creatures on the screen. I think she's convinced she's a ferocious sabertooth tiger now. Thanks, Aloy, for giving my cat an identity crisis."</div></div>
+<div class="quote-card pos"><div class="quote-meta">638 votes | 195h</div><div class="quote-text">"It's like the people who made this game wanted the players to enjoy it. Almost baffling in this day and age."</div></div>
+<div class="quote-card pos"><div class="quote-meta">245 votes | 808h</div><div class="quote-text">"The game can be a bit tough early on but then one must remember I am nearly 83 years old. But you younger ones should have no difficulty with your sharper reflexes."</div></div>
+<div class="quote-card pos"><div class="quote-meta">191 votes | 98h</div><div class="quote-text">"My wife's boyfriend says the game feels like oatmeal. You can spruce it up all you want, but at the core it's oatmeal. Sometimes it's damn good oatmeal, but it regresses to something bland eventually. As a 37 year old that only came back to gaming after a 2+ year break because of Zero Dawn though, this game is easily in my top 5 games of all time."</div></div>
+<div class="quote-card neg"><div class="quote-meta">781 votes | 91h</div><div class="quote-text">"I'm sad to say that after the awe and wonder Horizon: Zero Dawn inspired in me, Forbidden West failed to elicit the same emotional response. The original game had quite a strange cocktail of mystery, adventure and existential terror as you unraveled what had happened — at times it came off masterful in its storytelling. FW, by contrast, is a well-made game that does not surprise."</div></div>
+<div class="quote-card neg"><div class="quote-meta">432 votes | 108h</div><div class="quote-text">"Aloy: *approaches random stranger* Hello.  Stranger: Oh, hi... don't mind me, I was just staring pensively into the distance...  Aloy: Is something wron-  Stranger: WELL YOU SEE... My (relative/friend/squad) went on this crazy mission... They left days ago, but they haven't reported back... Do you think YOU could go find them?  Aloy: I'm sorta trying to save the world here-  *Quest Initiated Sound*"</div></div>
+<div class="quote-card neg"><div class="quote-meta">131 votes | 17h</div><div class="quote-text">"'What's back here?' when an off-path already grabbed my interest. 'I bet I can climb this wall' when I've already scanned and seen climbable ledges. 'I think I can climb up this cliff. I wonder if there's anything interesting at the top?' when I could literally see a signal tower from a distance. Aloy, please. Let me think."</div></div>
+<div class="quote-card neg"><div class="quote-meta">159 votes | 72h</div><div class="quote-text">"Where HZD was an elegant, brilliant masterpiece, this game feels like 60% of it is corporate-mandated filler. The story is good, but even then, some major characters are not developed as they deserve. This game lacks focus where the first one was spot-on."</div></div>
+</div></div>
+<div class="footer">
+Analysis: 28,632 reviews (full corpus) &nbsp;|&nbsp; Positive: 88.4% &nbsp;|&nbsp; Avg playtime: 107.0h &nbsp;|&nbsp; Very Positive<br>
+Corpus: English 49.8% &nbsp;|&nbsp; Chinese 8.3% &nbsp;|&nbsp; German 8.2% &nbsp;|&nbsp; Brazilian 5.0% &nbsp;|&nbsp; Russian 4.6% &nbsp;|&nbsp; +5 more<br>
+Generated by Claude Code — manual analysis of top 600 English reviews by helpfulness votes &nbsp;|&nbsp; May 2026
+</div>
+</div></body></html>

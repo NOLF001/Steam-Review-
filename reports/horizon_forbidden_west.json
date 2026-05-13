@@ -1,0 +1,15 @@
+{
+  "game_name": "Horizon Forbidden West: Complete Edition",
+  "slug": "horizon_forbidden_west",
+  "steam_rating": "Very Positive",
+  "positive_ratio": 88.4,
+  "total_analyzed": 28632,
+  "generated_at": "2026-05-13T14:30:00",
+  "metadata": {
+    "input_file": "horizon_forbidden_west_reviews.csv",
+    "total_steam_reviews": 28632,
+    "avg_playtime_hours": 107.0,
+    "median_playtime_hours": 82.4,
+    "note": "Full corpus collected (all available reviews). Manual analysis by Claude Code from top quality English reviews. Notable: culture-war review pollution around 'Sweet Baby Inc' accusations; Nixxes port widely praised as industry benchmark."
+  }
+}
