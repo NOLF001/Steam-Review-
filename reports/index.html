@@ -12,89 +12,41 @@
   <div class="dashboard">
 
     <header class="dash-header">
-      <div class="dash-title">Steam Review Analysis Dashboard</div>
-      <div class="dash-subtitle">Game review analysis powered by Claude API &nbsp;|&nbsp; 6 games analyzed</div>
+      <div class="dash-header-main">
+        <div class="dash-title">Steam Review Analysis Dashboard</div>
+        <div class="dash-subtitle">Game review analysis powered by Claude API &nbsp;|&nbsp; 6 games analyzed</div>
+      </div>
+      <div class="dash-stats">
+        <div class="dash-stat-item">
+          <span class="dash-stat-num">6</span>
+          <span class="dash-stat-label">Games</span>
+        </div>
+        <div class="dash-stat-item">
+          <span class="dash-stat-num">479,151</span>
+          <span class="dash-stat-label">Reviews Analyzed</span>
+        </div>
+        <div class="dash-stat-item">
+          <span class="dash-stat-num">85.9%</span>
+          <span class="dash-stat-label">Avg Positive</span>
+        </div>
+      </div>
     </header>
 
     <div class="card-grid">
-      <a class="game-card" href="ac_odyssey.html">
-        <span class="card-badge very-positive">Very Positive</span>
-        <div class="card-game-name">Assassin's Creed Odyssey</div>
-        <div class="card-stats">
-          <div class="card-stat">
-            <span class="card-stat-label">Positive</span>
-            <span class="card-stat-value">87.2%</span>
-          </div>
-          <div class="card-stat">
-            <span class="card-stat-label">Analyzed</span>
-            <span class="card-stat-value">49,998</span>
-          </div>
+
+      <!-- 1st: The Witcher 3 — 95.5% Overwhelmingly Positive -->
+      <a class="game-card overwhelmingly-positive" href="witcher3.html">
+        <div class="card-top">
+          <span class="card-badge overwhelmingly-positive">Overwhelmingly Positive</span>
+          <span class="card-category">RPG / Narrative</span>
         </div>
-        <span class="card-btn">View Analysis &rarr;</span>
-      </a>
-      <a class="game-card" href="crimson_desert.html">
-        <span class="card-badge very-positive">Very Positive</span>
-        <div class="card-game-name">Crimson Desert</div>
-        <div class="card-stats">
-          <div class="card-stat">
-            <span class="card-stat-label">Positive</span>
-            <span class="card-stat-value">84.0%</span>
-          </div>
-          <div class="card-stat">
-            <span class="card-stat-label">Analyzed</span>
-            <span class="card-stat-value">150,535</span>
-          </div>
-        </div>
-        <span class="card-btn">View Analysis &rarr;</span>
-      </a>
-      <a class="game-card" href="dragons_dogma_2.html">
-        <span class="card-badge mixed">Mixed</span>
-        <div class="card-game-name">Dragon's Dogma 2</div>
-        <div class="card-stats">
-          <div class="card-stat">
-            <span class="card-stat-label">Positive</span>
-            <span class="card-stat-value">65.2%</span>
-          </div>
-          <div class="card-stat">
-            <span class="card-stat-label">Analyzed</span>
-            <span class="card-stat-value">49,998</span>
-          </div>
-        </div>
-        <span class="card-btn">View Analysis &rarr;</span>
-      </a>
-      <a class="game-card" href="horizon_forbidden_west.html">
-        <span class="card-badge very-positive">Very Positive</span>
-        <div class="card-game-name">Horizon Forbidden West: Complete Edition</div>
-        <div class="card-stats">
-          <div class="card-stat">
-            <span class="card-stat-label">Positive</span>
-            <span class="card-stat-value">88.4%</span>
-          </div>
-          <div class="card-stat">
-            <span class="card-stat-label">Analyzed</span>
-            <span class="card-stat-value">28,632</span>
-          </div>
-        </div>
-        <span class="card-btn">View Analysis &rarr;</span>
-      </a>
-      <a class="game-card" href="skyrim.html">
-        <span class="card-badge very-positive">Very Positive</span>
-        <div class="card-game-name">The Elder Scrolls V: Skyrim Special Edition</div>
-        <div class="card-stats">
-          <div class="card-stat">
-            <span class="card-stat-label">Positive</span>
-            <span class="card-stat-value">95.0%</span>
-          </div>
-          <div class="card-stat">
-            <span class="card-stat-label">Analyzed</span>
-            <span class="card-stat-value">49,997</span>
-          </div>
-        </div>
-        <span class="card-btn">View Analysis &rarr;</span>
-      </a>
-      <a class="game-card" href="witcher3.html">
-        <span class="card-badge overwhelmingly-positive">Overwhelmingly Positive</span>
         <div class="card-game-name">The Witcher 3: Wild Hunt</div>
+        <div class="card-progress-wrap">
+          <div class="card-progress-bar">
+            <div class="card-progress-fill" style="width:95.5%"></div>
+          </div>
+          <span class="card-progress-pct">95.5%</span>
+        </div>
         <div class="card-stats">
           <div class="card-stat">
             <span class="card-stat-label">Positive</span>
@@ -107,11 +59,142 @@
         </div>
         <span class="card-btn">View Analysis &rarr;</span>
       </a>
+
+      <!-- 2nd: Skyrim — 95.0% Very Positive -->
+      <a class="game-card very-positive" href="skyrim.html">
+        <div class="card-top">
+          <span class="card-badge very-positive">Very Positive</span>
+          <span class="card-category">RPG / Open World</span>
+        </div>
+        <div class="card-game-name">The Elder Scrolls V: Skyrim Special Edition</div>
+        <div class="card-progress-wrap">
+          <div class="card-progress-bar">
+            <div class="card-progress-fill" style="width:95.0%"></div>
+          </div>
+          <span class="card-progress-pct">95.0%</span>
+        </div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-label">Positive</span>
+            <span class="card-stat-value">95.0%</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">Analyzed</span>
+            <span class="card-stat-value">49,997</span>
+          </div>
+        </div>
+        <span class="card-btn">View Analysis &rarr;</span>
+      </a>
+
+      <!-- 3rd: Horizon Forbidden West — 88.4% Very Positive -->
+      <a class="game-card very-positive" href="horizon_forbidden_west.html">
+        <div class="card-top">
+          <span class="card-badge very-positive">Very Positive</span>
+          <span class="card-category">Action RPG</span>
+        </div>
+        <div class="card-game-name">Horizon Forbidden West: Complete Edition</div>
+        <div class="card-progress-wrap">
+          <div class="card-progress-bar">
+            <div class="card-progress-fill" style="width:88.4%"></div>
+          </div>
+          <span class="card-progress-pct">88.4%</span>
+        </div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-label">Positive</span>
+            <span class="card-stat-value">88.4%</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">Analyzed</span>
+            <span class="card-stat-value">28,632</span>
+          </div>
+        </div>
+        <span class="card-btn">View Analysis &rarr;</span>
+      </a>
+
+      <!-- 4th: AC Odyssey — 87.2% Very Positive -->
+      <a class="game-card very-positive" href="ac_odyssey.html">
+        <div class="card-top">
+          <span class="card-badge very-positive">Very Positive</span>
+          <span class="card-category">Action RPG / Stealth</span>
+        </div>
+        <div class="card-game-name">Assassin's Creed Odyssey</div>
+        <div class="card-progress-wrap">
+          <div class="card-progress-bar">
+            <div class="card-progress-fill" style="width:87.2%"></div>
+          </div>
+          <span class="card-progress-pct">87.2%</span>
+        </div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-label">Positive</span>
+            <span class="card-stat-value">87.2%</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">Analyzed</span>
+            <span class="card-stat-value">49,998</span>
+          </div>
+        </div>
+        <span class="card-btn">View Analysis &rarr;</span>
+      </a>
+
+      <!-- 5th: Crimson Desert — 84.0% Very Positive -->
+      <a class="game-card very-positive" href="crimson_desert.html">
+        <div class="card-top">
+          <span class="card-badge very-positive">Very Positive</span>
+          <span class="card-category">MMO / Action RPG</span>
+        </div>
+        <div class="card-game-name">Crimson Desert</div>
+        <div class="card-progress-wrap">
+          <div class="card-progress-bar">
+            <div class="card-progress-fill" style="width:84.0%"></div>
+          </div>
+          <span class="card-progress-pct">84.0%</span>
+        </div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-label">Positive</span>
+            <span class="card-stat-value">84.0%</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">Analyzed</span>
+            <span class="card-stat-value">150,535</span>
+          </div>
+        </div>
+        <span class="card-btn">View Analysis &rarr;</span>
+      </a>
+
+      <!-- 6th: Dragon's Dogma 2 — 65.2% Mixed -->
+      <a class="game-card mixed" href="dragons_dogma_2.html">
+        <div class="card-top">
+          <span class="card-badge mixed">Mixed</span>
+          <span class="card-category">RPG / Action</span>
+        </div>
+        <div class="card-game-name">Dragon's Dogma 2</div>
+        <div class="card-progress-wrap">
+          <div class="card-progress-bar">
+            <div class="card-progress-fill" style="width:65.2%"></div>
+          </div>
+          <span class="card-progress-pct">65.2%</span>
+        </div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-label">Positive</span>
+            <span class="card-stat-value">65.2%</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-label">Analyzed</span>
+            <span class="card-stat-value">49,998</span>
+          </div>
+        </div>
+        <span class="card-btn">View Analysis &rarr;</span>
+      </a>
+
     </div>
 
     <footer class="dash-footer">
       Last updated: 2026-05-13 15:52 UTC<br>
-      Powered by <a href="https://www.anthropic.com/claude" style="color:#66c0f4">Claude API</a>
+      Powered by <a href="https://www.anthropic.com/claude">Claude API</a>
       &nbsp;|&nbsp; Steam review data via Steam Web API
     </footer>
 

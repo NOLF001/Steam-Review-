@@ -1,340 +1,349 @@
-/* ===================================================================
-   Steam Review Analysis — Shared Stylesheet
-   Used by: reports/index.html, reports/{slug}.html
-   =================================================================== */
+/* ═══════════════════════════════════════════════════════════════
+   Steam Review Analysis — Dashboard Styles
+   reports/assets/style.css
+   ═══════════════════════════════════════════════════════════════ */
 
+/* ── Reset ────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── Base ─────────────────────────────────────────────────────── */
 body {
-  background: #1b2838;
+  background: linear-gradient(180deg, #1b2838 0%, #0e1820 100%);
+  min-height: 100vh;
   color: #c7d5e0;
   font-family: 'Motiva Sans', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
 
-/* ── Nav Bar (analysis pages) ── */
-.nav-bar {
-  background: #16202c;
-  border-bottom: 1px solid #2a475e;
-  padding: 10px 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-back {
-  color: #66c0f4;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.15s;
-}
-.nav-back:hover { color: #8fd3f4; text-decoration: underline; }
-
-.nav-game {
-  color: #8f98a0;
-  font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* ── Analysis Page Container ── */
-.container {
-  max-width: 800px;
+/* ── Dashboard Container ──────────────────────────────────────── */
+.dashboard {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 48px 24px 64px;
 }
 
-/* ── Header ── */
-.header {
+/* ── Header ───────────────────────────────────────────────────── */
+.dash-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
-  padding-bottom: 28px;
-  margin-bottom: 32px;
-  border-bottom: 1px solid #2a475e;
-}
-
-.game-name {
-  font-size: 32px;
-  font-weight: bold;
-  color: #ffffff;
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
-
-.subtitle { font-size: 16px; color: #8f98a0; }
-
-.header-right { text-align: right; flex-shrink: 0; }
-
-.steam-rating { font-size: 20px; font-weight: bold; margin-bottom: 4px; }
-.review-count { font-size: 13px; color: #8f98a0; }
-
-/* ── Stats Bar ── */
-.stats-bar {
-  background: #16202c;
-  border: 1px solid #2a475e;
-  border-radius: 6px;
-  padding: 16px 24px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  margin-bottom: 28px;
-}
-
-.stat-item { flex: 1; min-width: 120px; padding: 4px 16px; }
-.stat-item:first-child { padding-left: 0; }
-.stat-item + .stat-item { border-left: 1px solid #2a475e; }
-.stat-label { font-size: 10px; color: #8f98a0; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 3px; }
-.stat-value { font-size: 18px; font-weight: bold; color: #c7d5e0; display: block; }
-
-/* ── Ratio Bar ── */
-.ratio-wrap { margin-bottom: 28px; }
-.ratio-labels { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; }
-.label-pos { color: #a4d007; font-weight: bold; }
-.label-neg { color: #e05c37; font-weight: bold; }
-.ratio-track { height: 6px; background: rgba(163,76,37,.35); border-radius: 3px; overflow: hidden; }
-.ratio-fill  { height: 100%; background: linear-gradient(90deg,#5c7e10,#a4d007); border-radius: 3px; }
-
-/* ── Language Pills ── */
-.lang-bar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
-.lang-pill { background: #16202c; border: 1px solid #2a475e; border-radius: 20px; padding: 4px 12px; font-size: 12px; color: #8f98a0; }
-.lang-pill strong { color: #c7d5e0; }
-
-/* ── Sections ── */
-.section { margin-bottom: 36px; }
-
-.section-heading {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-.section-heading.pros    { color: #5c7e10; }
-.section-heading.cons    { color: #a34c25; }
-.section-heading.verdict { color: #66c0f4; }
-.section-heading.stats   { color: #c7d5e0; }
-
-/* ── Pros / Cons List ── */
-.item-list { list-style: none; }
-
-.item-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  line-height: 1.6;
-  font-size: 15px;
-}
-.item-list li:last-child { border-bottom: none; }
-
-.marker { flex-shrink: 0; margin-top: 1px; font-size: 14px; }
-.marker.pros { color: #5c7e10; }
-.marker.cons { color: #a34c25; }
-
-/* ── Verdict ── */
-.verdict-body {
-  border-left: 4px solid #66c0f4;
-  padding-left: 20px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #c7d5e0;
-}
-.verdict-body p + p { margin-top: 14px; }
-
-/* ── Quote Cards ── */
-.quotes { display: flex; flex-direction: column; gap: 10px; }
-.quote-card {
-  background: #16202c;
-  border: 1px solid #2a475e;
-  border-radius: 4px;
-  padding: 12px 16px;
-}
-.quote-card.pos { border-left: 3px solid #5c7e10; }
-.quote-card.neg { border-left: 3px solid #a34c25; }
-.quote-meta { font-size: 11px; color: #8f98a0; margin-bottom: 5px; }
-.quote-text { font-size: 13.5px; font-style: italic; line-height: 1.6; }
-
-/* ── Playtime Breakdown ── */
-.pt-bars { display: flex; flex-direction: column; gap: 8px; }
-.pt-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
-.pt-label { width: 90px; color: #8f98a0; flex-shrink: 0; }
-.pt-track { flex: 1; background: #0e1923; border-radius: 2px; height: 14px; overflow: hidden; }
-.pt-fill  { height: 100%; border-radius: 2px; background: linear-gradient(90deg,#2a5f8a,#66c0f4); }
-.pt-count { width: 50px; text-align: right; color: #c7d5e0; }
-
-/* ── Analysis Footer ── */
-.footer {
-  margin-top: 40px;
-  padding-top: 16px;
-  border-top: 1px solid #2a475e;
-  font-size: 12px;
-  color: #566b7d;
-  text-align: center;
-  line-height: 1.8;
-}
-
-/* ===================================================================
-   Dashboard / Index Page Styles
-   =================================================================== */
-
-.dashboard {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.dash-header {
-  text-align: center;
+  gap: 32px;
   margin-bottom: 48px;
-  padding-bottom: 28px;
+  padding-bottom: 32px;
   border-bottom: 1px solid #2a475e;
 }
+
+.dash-header-main { flex: 1; }
 
 .dash-title {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: bold;
-  color: #fff;
+  background: linear-gradient(90deg, #66c0f4 0%, #5c7e10 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.15;
   margin-bottom: 8px;
 }
 
 .dash-subtitle {
-  font-size: 16px;
+  font-size: 15px;
   color: #8f98a0;
 }
 
-/* ── Card Grid ── */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  margin-bottom: 48px;
+/* ── Header Stats Box ─────────────────────────────────────────── */
+.dash-stats {
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+  background: #16202c;
+  border: 1px solid #2a475e;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
+.dash-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 24px;
+}
+
+.dash-stat-item + .dash-stat-item { border-left: 1px solid #2a475e; }
+
+.dash-stat-num {
+  font-size: 22px;
+  font-weight: bold;
+  color: #66c0f4;
+  display: block;
+  line-height: 1.2;
+}
+
+.dash-stat-label {
+  font-size: 10px;
+  color: #8f98a0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* ── Card Grid ────────────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Game Card ────────────────────────────────────────────────── */
 .game-card {
-  background: #16202c;
+  background: linear-gradient(145deg, #1e2a38 0%, #192434 100%);
   border: 1px solid #2a475e;
   border-radius: 8px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  gap: 14px;
   text-decoration: none;
-  color: inherit;
-}
-.game-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
-  border-color: #3a637e;
+  color: #c7d5e0;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  opacity: 0;
+  animation: fadeSlideIn 0.45s ease forwards;
 }
 
-/* ── Rating Badge ── */
+/* Staggered entrance delays */
+.game-card:nth-child(1) { animation-delay: 0.00s; }
+.game-card:nth-child(2) { animation-delay: 0.08s; }
+.game-card:nth-child(3) { animation-delay: 0.16s; }
+.game-card:nth-child(4) { animation-delay: 0.24s; }
+.game-card:nth-child(5) { animation-delay: 0.32s; }
+.game-card:nth-child(6) { animation-delay: 0.40s; }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Rating-based left border */
+.game-card.overwhelmingly-positive { border-left: 4px solid #66c0f4; }
+.game-card.very-positive           { border-left: 4px solid #5c7e10; }
+.game-card.mostly-positive         { border-left: 4px solid #a4d007; }
+.game-card.mixed                   { border-left: 4px solid #b9a074; }
+.game-card.mostly-negative         { border-left: 4px solid #d94126; }
+
+/* Hover lift + rating glow */
+.game-card:hover { transform: translateY(-4px); }
+
+.game-card.overwhelmingly-positive:hover {
+  box-shadow: 0 8px 28px rgba(102,192,244,0.18), 0 2px 8px rgba(0,0,0,0.35);
+  border-color: rgba(102,192,244,0.55);
+}
+.game-card.very-positive:hover {
+  box-shadow: 0 8px 28px rgba(92,126,16,0.22), 0 2px 8px rgba(0,0,0,0.35);
+  border-color: rgba(92,126,16,0.55);
+}
+.game-card.mixed:hover {
+  box-shadow: 0 8px 28px rgba(185,160,116,0.18), 0 2px 8px rgba(0,0,0,0.35);
+  border-color: rgba(185,160,116,0.55);
+}
+
+/* Keyboard focus */
+.game-card:focus-visible {
+  outline: 2px solid #66c0f4;
+  outline-offset: 3px;
+}
+
+/* ── Card Top Row ─────────────────────────────────────────────── */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* ── Rating Badge ─────────────────────────────────────────────── */
 .card-badge {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 3px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  width: fit-content;
+  letter-spacing: 0.6px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  white-space: nowrap;
 }
-.card-badge.overwhelmingly-positive,
-.card-badge.very-positive {
-  background: rgba(102,192,244,.15);
+
+.card-badge.overwhelmingly-positive {
+  background: rgba(102,192,244,0.12);
   color: #66c0f4;
-  border: 1px solid rgba(102,192,244,.3);
+  border: 1px solid rgba(102,192,244,0.35);
+}
+.card-badge.very-positive {
+  background: rgba(92,126,16,0.18);
+  color: #a4d007;
+  border: 1px solid rgba(92,126,16,0.40);
 }
 .card-badge.mostly-positive {
-  background: rgba(164,194,71,.12);
-  color: #a4c247;
-  border: 1px solid rgba(164,194,71,.3);
+  background: rgba(164,208,7,0.12);
+  color: #a4d007;
+  border: 1px solid rgba(164,208,7,0.35);
 }
 .card-badge.mixed {
-  background: rgba(193,176,75,.15);
-  color: #c1b04b;
-  border: 1px solid rgba(193,176,75,.3);
+  background: rgba(185,160,116,0.12);
+  color: #c6a84c;
+  border: 1px solid rgba(185,160,116,0.35);
 }
-.card-badge.mostly-negative,
-.card-badge.very-negative,
-.card-badge.overwhelmingly-negative {
-  background: rgba(194,80,74,.15);
-  color: #c2504a;
-  border: 1px solid rgba(194,80,74,.3);
+.card-badge.mostly-negative {
+  background: rgba(217,65,38,0.12);
+  color: #d94126;
+  border: 1px solid rgba(217,65,38,0.35);
 }
 
-.card-game-name {
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
+/* ── Category Label ───────────────────────────────────────────── */
+.card-category {
+  font-size: 10px;
+  color: #4d6070;
+  text-align: right;
+  flex-shrink: 0;
+  padding-top: 3px;
   line-height: 1.3;
-  flex-grow: 1;
 }
 
-/* ── Card Stats ── */
+/* ── Game Name ────────────────────────────────────────────────── */
+.card-game-name {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+/* ── Progress Bar ─────────────────────────────────────────────── */
+.card-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-progress-bar {
+  flex: 1;
+  height: 8px;
+  background: #0e1923;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card-progress-fill { height: 100%; border-radius: 4px; }
+
+.game-card.overwhelmingly-positive .card-progress-fill {
+  background: linear-gradient(90deg, #3a9fd4, #66c0f4);
+}
+.game-card.very-positive .card-progress-fill {
+  background: linear-gradient(90deg, #3d5a0a, #5c7e10);
+}
+.game-card.mostly-positive .card-progress-fill {
+  background: linear-gradient(90deg, #7a9e00, #a4d007);
+}
+.game-card.mixed .card-progress-fill {
+  background: linear-gradient(90deg, #8a7040, #b9a074);
+}
+.game-card.mostly-negative .card-progress-fill {
+  background: linear-gradient(90deg, #a03018, #d94126);
+}
+
+.card-progress-pct {
+  font-size: 14px;
+  font-weight: bold;
+  color: #c7d5e0;
+  width: 44px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Card Stats ───────────────────────────────────────────────── */
 .card-stats {
   display: flex;
-  gap: 24px;
+  gap: 20px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: auto;
 }
-.card-stat { display: flex; flex-direction: column; gap: 2px; }
+
+.card-stat { display: flex; flex-direction: column; }
+
 .card-stat-label {
   font-size: 10px;
-  color: #8f98a0;
+  color: #566b7d;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
 }
+
 .card-stat-value {
-  font-size: 22px;
+  font-size: 14px;
   font-weight: bold;
   color: #c7d5e0;
 }
 
-/* ── Card Button ── */
+/* ── View Analysis Button ─────────────────────────────────────── */
 .card-btn {
   display: block;
   text-align: center;
-  background: #1a9fff;
-  color: #fff;
-  text-decoration: none;
-  padding: 9px 16px;
-  border-radius: 3px;
-  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 13px;
   font-weight: bold;
-  transition: background 0.15s;
-  margin-top: auto;
-}
-.card-btn:hover { background: #47b3ff; }
-
-/* ── Empty State ── */
-.empty-state {
-  text-align: center;
-  color: #566b7d;
-  font-size: 15px;
-  padding: 60px 20px;
-  grid-column: 1 / -1;
+  letter-spacing: 0.2px;
+  background: rgba(42,71,94,0.5);
+  border: 1px solid #2a475e;
+  color: #66c0f4;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-/* ── Dashboard Footer ── */
+.game-card:hover .card-btn {
+  background: rgba(102,192,244,0.14);
+  border-color: rgba(102,192,244,0.5);
+  color: #8fd3f4;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
 .dash-footer {
-  text-align: center;
-  font-size: 12px;
-  color: #566b7d;
-  padding-top: 16px;
+  margin-top: 56px;
+  padding-top: 20px;
   border-top: 1px solid #2a475e;
-  line-height: 1.8;
+  font-size: 12px;
+  color: #67707b;
+  text-align: center;
+  line-height: 1.9;
 }
 
-/* ── Responsive ── */
-@media (max-width: 600px) {
-  .dash-title { font-size: 26px; }
-  .card-grid  { grid-template-columns: 1fr; }
-  .header     { flex-direction: column; }
-  .stats-bar  { flex-direction: column; }
-  .stat-item + .stat-item { border-left: none; border-top: 1px solid #2a475e; padding-left: 0; padding-top: 10px; }
+.dash-footer a {
+  color: #66c0f4;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.dash-footer a:hover,
+.dash-footer a:focus-visible {
+  color: #8fd3f4;
+  text-decoration: underline;
+}
+
+/* ── Responsive: Tablet ───────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .dash-header { flex-direction: column; gap: 20px; align-items: stretch; }
+  .dash-stats { justify-content: space-around; }
+}
+
+/* ── Responsive: Mobile ───────────────────────────────────────── */
+@media (max-width: 640px) {
+  .dashboard { padding: 28px 16px 48px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .dash-title { font-size: 30px; }
+  .dash-subtitle { font-size: 14px; }
+  .dash-stat-item { padding: 12px 16px; }
+  .dash-stat-num { font-size: 18px; }
+  .card-progress-bar { height: 6px; }
+  .game-card { padding: 18px; gap: 12px; }
 }
